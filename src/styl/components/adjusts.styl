@@ -1,0 +1,21 @@
+.adjusts
+  background-color $brand-color
+  display flex
+  flex-direction column
+  font-size 1.4rem
+  padding 1.5rem
+
+  @media (min-width: 450px)
+    flex-direction row
+    justify-content space-between
+
+  &__info
+
+    &:focus
+    &:hover
+      color inherit
+      text-decoration underline
+
+  &__controls
+    display inherit
+    flex-direction inherit

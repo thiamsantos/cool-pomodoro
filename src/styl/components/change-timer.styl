@@ -1,0 +1,39 @@
+.change-timer
+  display flex
+  flex-direction column
+  justify-content center
+  margin-left 1rem
+  margin-right 1rem
+  margin-top 3rem
+
+  @media (min-width: 300px)
+    flex-direction row
+
+  &__button
+    appearance none
+    background-color $brand-color
+    color inherit
+    padding-bottom 1rem
+    padding-top 1rem
+    width 100%
+
+    &:hover
+    &:focus
+      background-color $brand-color-dark !important
+
+    &.is-active
+      background-color $brand-color-light
+
+    &:not(:last-child)
+      margin-bottom .2rem
+      margin-right 0
+
+    @media (min-width: 300px)
+      max-width 10rem
+
+      &:not(:last-child)
+        margin-bottom 0
+        margin-right .2rem
+
+
+
