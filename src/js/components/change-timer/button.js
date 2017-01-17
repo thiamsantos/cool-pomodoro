@@ -1,6 +1,6 @@
 import bel from 'bel'
-import {capitalize} from '../services/utils'
-import {changeTimerType} from '../services/actions'
+import {capitalize} from '../../services/utils'
+import {changeTimerType} from '../../services/actions'
 
 const changeTimer = ({store, timer, timerType}) => () => {
   store.dispatch(changeTimerType(timerType, timer))

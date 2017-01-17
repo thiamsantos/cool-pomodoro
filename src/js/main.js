@@ -1,13 +1,13 @@
 import morphdom from 'morphdom'
 import {changeTitle} from './services/utils'
 import store from './services/store'
-import App from './containers/app'
+import Root from './components/root'
 
-document.body.appendChild(App(store))
+document.body.appendChild(Root(store))
 
 const render = () => {
   console.log(store.getState())
-  morphdom(document.getElementById('app'), App(store))
+  morphdom(document.getElementById('app'), Root(store))
 }
 
 store.subscribe(render)

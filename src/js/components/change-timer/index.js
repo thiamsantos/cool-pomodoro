@@ -1,19 +1,19 @@
 import bel from 'bel'
-import ChangeTimerButton from '../components/change-timer-button'
+import Button from './button'
 
 export default store =>
   bel`<section class="change-timer">
-    ${ChangeTimerButton({
+    ${Button({
       timer: 1500,
       timerType: 'code',
       store
     })}
-    ${ChangeTimerButton({
+    ${Button({
       timer: 300,
       timerType: 'social',
       store
     })}
-    ${ChangeTimerButton({
+    ${Button({
       timer: 900,
       timerType: 'coffee',
       store

@@ -1,5 +1,5 @@
 import bel from 'bel'
-import {changeTimerPlayState} from '../services/actions'
+import {changeTimerPlayState} from '../../services/actions'
 
 const isPaused = store => store.getState().timer.playState === 'paused'
 
