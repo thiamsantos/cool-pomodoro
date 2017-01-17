@@ -1,13 +1,12 @@
 import bel from 'bel'
 import ControlButton from '../components/control-button'
 import Footer from '../components/footer'
+import {toggleAdjust} from '../services/actions'
 import Timer from './timer'
 import ChangeTimer from './change-timer'
 
 const handleChange = (store, item) => () => {
-  store.dispatch({
-    type: 'TOOGLE_' + item.toUpperCase()
-  })
+  store.dispatch(toggleAdjust(item.toLowerCase()))
 }
 
 export default store =>
@@ -30,7 +29,7 @@ export default store =>
           type="checkbox"
           id="notification"
           onchange=${handleChange(store, 'notification')}
-          checked=${store.getState().notification}
+          checked=${store.getState().adjusts.notification}
           />
         <label for="notification">Notification</label>
 
@@ -38,7 +37,7 @@ export default store =>
           type="checkbox"
           id="sound"
           onchange=${handleChange(store, 'sound')}
-          checked=${store.getState().sound}
+          checked=${store.getState().adjusts.sound}
           />
         <label for="sound">Sound</label>
 
@@ -46,7 +45,7 @@ export default store =>
           type="checkbox"
           id="vibration"
           onchange=${handleChange(store, 'vibration')}
-          checked=${store.getState().vibration}
+          checked=${store.getState().adjusts.vibration}
           />
         <label for="vibration">Vibration</label>
       </div>

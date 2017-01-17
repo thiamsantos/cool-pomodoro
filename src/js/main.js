@@ -14,7 +14,7 @@ store.subscribe(render)
 store.subscribe(changeTitle(store))
 
 setInterval(() => {
-  if (store.getState().pausedTimer) {
+  if (store.getState().timer.playState === 'paused') {
     return false
   }
   store.dispatch({

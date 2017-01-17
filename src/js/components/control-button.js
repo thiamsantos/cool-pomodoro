@@ -1,14 +1,15 @@
 import bel from 'bel'
+import {changeTimerPlayState} from '../services/actions'
+
+const isPaused = store => store.getState().timer.playState === 'paused'
 
 const pausedTimer = store => () => {
-  store.dispatch({
-    type: 'PAUSE_TIMER',
-    pausedTimer: !store.getState().pausedTimer
-  })
+  const currentPlayState = isPaused(store) ? 'running' : 'paused'
+  store.dispatch(changeTimerPlayState(currentPlayState))
 }
 
 export default store => {
-  const pausedState = store.getState().pausedTimer ? 'play' : 'pause'
+  const pausedState = isPaused(store) ? 'play' : 'pause'
 
   return bel`<button
     class="control-button control-button--${pausedState}"

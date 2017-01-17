@@ -8,5 +8,7 @@ export const formatTime = seconds => {
 export const capitalize = str => str[0].toUpperCase() + str.slice(1)
 
 export const changeTitle = store => () => {
-  document.title = `${formatTime(store.getState().timer)} | Pomodoro Timer`
+  document.title = `${
+    formatTime(store.getState().timer.value)
+  } | Pomodoro Timer`
 }

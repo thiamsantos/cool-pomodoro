@@ -4,6 +4,6 @@ import TimerType from '../components/timer-type'
 
 export default state =>
   bel`<div class="timer">
-    ${TimerDisplay(state.timer)}
-    ${TimerType(state.timerType)}
+    ${TimerDisplay(state.timer.value)}
+    ${TimerType(state.timer.type)}
   </div>`
