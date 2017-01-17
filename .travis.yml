@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - '4'
+  - '6'
+  - 'node'
+cache: yarn
+script:
+  - npm test
+  - npm run lint
+after_script:
+  - yarn global add coveralls
+  - npm run coveralls

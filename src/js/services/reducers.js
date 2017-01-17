@@ -5,13 +5,13 @@ import {
   TOGGLE_ADJUST
 } from './actions'
 
-const timerInitialState = {
+export const timerInitialState = {
   value: 1500,
   type: 'code',
-  playState: 'runnning'
+  playState: 'running'
 }
 
-const adjustsInitialState = {
+export const adjustsInitialState = {
   notification: false,
   sound: false,
   vibration: false
