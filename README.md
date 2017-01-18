@@ -7,4 +7,3 @@
 :alarm_clock: Pomodoro timer built with cool libraries
 
 <!-- https://github.com/acdlite/flux-standard-action -->
-21.4 kb
