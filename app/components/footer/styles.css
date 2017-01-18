@@ -1,6 +1,7 @@
 :root {
   --brand-color-dark: #512DA8;
   --accent-color: #69F0AE;
+  --text-color-dark: #bdbdbd;
 }
 
 .footer {
@@ -8,6 +9,11 @@
   padding-bottom: 1rem;
   padding-top: 1rem;
   text-align: center;
+
+  & a:hover,
+  & a:focus {
+    color: var(--text-color-dark);
+  }
 }
 
 .heart {
