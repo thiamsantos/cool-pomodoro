@@ -1,11 +1,12 @@
 import bel from 'bel'
 import Info from './info'
 import Control from './control'
+import styles from './styles.css'
 
 export default store =>
-  bel`<section class="adjusts">
-    ${Info()}
-    <div class="adjusts__controls">
+  bel`<section class=${styles.adjusts}>
+    ${Info(styles.info)}
+    <div class=${styles.controls}>
       ${Control(store, 'notification')}
       ${Control(store, 'sound')}
       ${Control(store, 'vibration')}

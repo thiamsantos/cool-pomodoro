@@ -1,5 +1,6 @@
 import bel from 'bel'
 import {formatTime} from '../../services/utils'
+import styles from './styles.css'
 
 export default time =>
-  bel`<p class="timer__display">${formatTime(time)}</p>`
+  bel`<p class=${styles.display}>${formatTime(time)}</p>`

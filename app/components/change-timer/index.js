@@ -1,8 +1,9 @@
 import bel from 'bel'
 import Button from './button'
+import styles from './styles.css'
 
 export default store =>
-  bel`<section class="change-timer">
+  bel`<section class=${styles.changeTimer}>
     ${Button({
       timer: 1500,
       timerType: 'code',

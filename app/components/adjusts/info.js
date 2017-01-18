@@ -1,10 +1,10 @@
 import bel from 'bel'
 
-export default () =>
+export default className =>
   bel`<a
     href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
     rel="noopener"
     target="_blank"
-    class="adjusts__info">
+    class=${className} >
     What is Pomodoro?
   </a>`

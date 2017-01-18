@@ -1,0 +1,70 @@
+:root {
+  --text-color: #fafafa;
+  --text-color-accent: #9575CD;
+
+  --dark-color: #212121;
+
+  --brand-color: #673AB7;
+  --brand-color-light: #7E57C2;
+  --brand-color-dark: #512DA8;
+}
+
+:global(*) {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+
+  &,
+  &:after,
+  &:before {
+    box-sizing: border-box;
+    font: inherit;
+  }
+}
+
+:global(html) {
+  font-size: 62.5%;
+
+  @media (min-width: 600px) {
+    font-size: 65.625%;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 68.75%;
+  }
+}
+
+:global(body) {
+  background-color: var(--dark-color);
+  color: var(--text-color);
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+:global(a) {
+  color: inherit;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: var(--brand-color-light);
+  }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+}

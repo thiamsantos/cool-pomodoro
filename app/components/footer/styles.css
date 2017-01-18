@@ -1,0 +1,12 @@
+:root {
+  --brand-color: #673AB7;
+  --brand-color-light: #7E57C2;
+  --brand-color-dark: #512DA8;
+}
+
+.footer {
+  background-color: var(--brand-color-dark);
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  text-align: center;
+}
