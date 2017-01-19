@@ -1,4 +1,5 @@
 :root {
+  --accent-color: #69F0AE;
   --brand-color: #673AB7;
   --brand-color-light: #7E57C2;
   --brand-color-dark: #512DA8;
@@ -13,7 +14,7 @@
 
   @media (min-width: 450px) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 
@@ -23,9 +24,68 @@
     color: inherit;
     text-decoration: underline;
   }
+  text-align: center;
 }
 
 .controls {
   display: inherit;
   flex-direction: inherit;
+  font-size: 1.6rem;
+  padding-left: 2rem;
+}
+
+.control {
+  margin-top: 1rem;
+
+  @media (min-width: 450px) {
+    margin-top: 0;
+
+    &:not(:last-child) {
+      padding-right: 3rem;
+    }
+  }
+}
+
+.box {
+  background-color: transparent;
+  border: .1rem solid currentColor;
+  display: block;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: -3rem;
+  top: 0;
+}
+
+.label {
+  position: relative;
+}
+
+.input {
+  visibility: hidden;
+
+  &:checked {
+    & + .label:after,
+    & + .label:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: var(--accent-color);
+      transform: rotate(45deg);
+    }
+
+    & + .label:after {
+      bottom: 0rem;
+      left: -1.8rem;
+      height: 2rem;
+      width: .5rem;
+    }
+
+    & + .label:before {
+      bottom: .4rem;
+      left: -2.8rem;
+      height: .5rem;
+      width: 1rem;
+    }
+  }
 }
