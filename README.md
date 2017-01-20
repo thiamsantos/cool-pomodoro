@@ -4,7 +4,7 @@
 [![Coveralls](https://img.shields.io/coveralls/thiamsantos/cool-pomodoro.svg)](https://coveralls.io/github/thiamsantos/cool-pomodoro?branch=master)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
->Pomodoro timer for developers built with cool libraries.
+>Pomodoro timer for developers built with cool libraries :sunglasses:
 
 *Note: This project is reimplementation of the awesome [react-pomodoro](https://github.com/afonsopacifer/react-pomodoro) by [@afonsopacifer](https://github.com/afonsopacifer).*
 
