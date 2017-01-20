@@ -1,12 +1,12 @@
-# [cool-pomodoro](https://thiamsantos.github.io/cool-pomodoro/)
+# [Cool Pomodoro](https://thiamsantos.github.io/cool-pomodoro/)
 
 [![Travis](https://img.shields.io/travis/thiamsantos/cool-pomodoro.svg)](https://travis-ci.org/thiamsantos/cool-pomodoro)
 [![Coveralls](https://img.shields.io/coveralls/thiamsantos/cool-pomodoro.svg)](https://coveralls.io/github/thiamsantos/cool-pomodoro?branch=master)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
->Pomodoro timer for developers built with cool libraries.
+>Pomodoro timer for developers built with cool libraries :sunglasses:.
 
-*Note: This project is reimplementation of the awesome [react-pomodoro](https://github.com/afonsopacifer/react-pomodoro) by [@afonsopacifer](https://github.com/afonsopacifer)*
+*Note: This project is reimplementation of the awesome [react-pomodoro](https://github.com/afonsopacifer/react-pomodoro) by [@afonsopacifer](https://github.com/afonsopacifer).*
 
 The main goal of the project is build a complete react-like app using only the coolest libraries of the present. To do so it is used:
 - [bel](https://github.com/shama/bel) for composable DOM elements using tagged template strings. An good alternative to [jsx](https://facebook.github.io/react/docs/introducing-jsx.html).
