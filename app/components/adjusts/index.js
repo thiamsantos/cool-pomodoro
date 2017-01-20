@@ -5,7 +5,7 @@ import styles from './styles.css'
 
 export default store =>
   bel`<section class=${styles.adjusts}>
-    ${Info(styles.info)}
+    ${Info()}
     <div class=${styles.controls}>
       ${Control(store, 'notification')}
       ${Control(store, 'sound')}

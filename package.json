@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Pomodoro timer built with cool libraries",
   "scripts": {
-    "test": "tape -r babel-register app/**/*.test.js",
+    "test": "tape -r babel-register -r ignore-styles app/**/*.test.js",
     "coverage": "nyc npm test",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "lint:js": "xo app/**/*.js",
     "lint": "npm run lint:js",
     "build:js": "webpack",
     "watch:js": "webpack --watch",
-    "watch:test": "tape-watch -r babel-register app/**/*.test.js",
+    "watch:test": "tape-watch -r babel-register -r ignore-styles app/**/*.test.js",
     "serve": "browser-sync start -s build --files \"build/**/*\""
   },
   "repository": {
@@ -54,6 +54,7 @@
     "browser-sync": "^2.18.6",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "ignore-styles": "^5.0.1",
     "morphdom": "^2.3.1",
     "nyc": "^10.0.0",
     "postcss-cssnext": "^2.9.0",

@@ -2,19 +2,24 @@ import bel from 'bel'
 import {changeTimerPlayState} from '../../services/actions'
 import styles from './styles.css'
 
-const isPaused = store => store.getState().timer.playState === 'paused'
+export const isPaused = store => store.getState().timer.playState === 'paused'
 
-const pausedTimer = store => () => {
-  const currentPlayState = isPaused(store) ? 'running' : 'paused'
-  store.dispatch(changeTimerPlayState(currentPlayState))
+export const getNextPlayState = store =>
+  isPaused(store) ? 'running' : 'paused'
+
+export const getPlayStateStyle = (store, styles) =>
+  isPaused(store) ? styles.play : styles.pause
+
+export const handleClick = store => () => {
+  store.dispatch(changeTimerPlayState(getNextPlayState(store)))
 }
 
-export default store => {
-  const pausedState = isPaused(store) ? styles.play : styles.pause
+export const getText = store =>
+  isPaused(store) ? 'play' : 'pause'
 
-  return bel`<button
-    class="${styles.button} ${pausedState}"
-    onclick=${pausedTimer(store)}>
-    ${pausedState}
+export default store =>
+  bel`<button
+    class="${styles.button} ${getPlayStateStyle(store, styles)}"
+    onclick=${handleClick(store)}>
+    ${getText(store)}
   </button>`
-}

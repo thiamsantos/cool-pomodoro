@@ -3,7 +3,7 @@ import {toggleAdjust} from '../../services/actions'
 import {capitalize} from '../../services/utils'
 import styles from './styles.css'
 
-const handleChange = (store, name) => () => {
+export const handleChange = (store, name) => () => {
   store.dispatch(toggleAdjust(name.toLowerCase()))
 }
 
