@@ -1,5 +1,8 @@
 const webpack = require('webpack')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const cssNext = require('postcss-cssnext')
+const cssVariables = require('./config/css-variables')
+const stylelint = require('stylelint')
 
 module.exports = {
   entry: './app/main.js',
@@ -23,7 +26,16 @@ module.exports = {
     }]
   },
   postcss() {
-    return [require('postcss-cssnext')]
+    return [
+      stylelint({
+        configFile: 'config/stylelint.config.js'
+      }),
+      cssNext({
+        features: {
+          customProperties: {variables: cssVariables}
+        }
+      })
+    ]
   },
   plugins: [
     new ExtractTextPlugin('main.css'),

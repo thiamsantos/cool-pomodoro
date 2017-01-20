@@ -1,14 +1,3 @@
-:root {
-  --text-color: #fafafa;
-  --text-color-accent: #9575CD;
-
-  --dark-color: #212121;
-
-  --brand-color: #673AB7;
-  --brand-color-light: #7E57C2;
-  --brand-color-dark: #512DA8;
-}
-
 :global(*) {
   border: 0;
   margin: 0;
@@ -16,8 +5,8 @@
   padding: 0;
 
   &,
-  &:after,
-  &:before {
+  &::after,
+  &::before {
     box-sizing: border-box;
     font: inherit;
   }
@@ -36,8 +25,8 @@
 }
 
 :global(body) {
-  background-color: var(--dark-color);
-  color: var(--text-color);
+  background-color: var(--darkColor);
+  color: var(--textColor);
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   font-weight: 300;
@@ -50,7 +39,7 @@
 
   &:focus,
   &:hover {
-    color: var(--brand-color-light);
+    color: var(--brandColorLight);
   }
 }
 
@@ -61,8 +50,8 @@
 }
 
 .main {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   padding-bottom: 4rem;

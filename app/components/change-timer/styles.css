@@ -1,9 +1,3 @@
-:root {
-  --brand-color: #673AB7;
-  --brand-color-light: #7E57C2;
-  --brand-color-dark: #512DA8;
-}
-
 .changeTimer {
   display: flex;
   flex-direction: column;
@@ -19,7 +13,7 @@
 
 .button {
   appearance: none;
-  background-color: var(--brand-color);
+  background-color: var(--brandColor);
   color: inherit;
   padding-bottom: 1rem;
   padding-top: 1rem;
@@ -27,7 +21,7 @@
 
   &:hover,
   &:focus {
-    background-color: var(--brand-color-dark) !important;
+    background-color: var(--brandColorDark);
   }
 
   &:not(:last-child) {
@@ -46,5 +40,5 @@
 }
 
 .buttonActive {
-    background-color: var(--brand-color-light);
+  background-color: var(--brandColorLight);
 }

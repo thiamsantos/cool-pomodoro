@@ -1,17 +1,6 @@
-:root {
-  --text-color: #fafafa;
-  --text-color-accent: #9575CD;
-
-  --dark-color: #212121;
-
-  --brand-color: #673AB7;
-  --brand-color-light: #7E57C2;
-  --brand-color-dark: #512DA8;
-}
-
 .button {
   appearance: none;
-  background-color: var(--text-color);
+  background-color: var(--textColor);
   border-radius: 50%;
   color: transparent;
   display: block;
@@ -25,12 +14,12 @@
 
   &:focus,
   &:hover {
-    background-color: color(var(--text-color) a(54%));
+    background-color: color(var(--textColor) a(54%));
   }
 
-  &:before {
+  &::before {
     border-bottom: 1.25rem solid transparent;
-    border-left: 2rem solid var(--dark-color);
+    border-left: 2rem solid var(--darkColor);
     border-top: 1.25rem solid transparent;
     content: "";
     display: block;
@@ -41,9 +30,9 @@
     width: 0;
   }
 
-  &:after {
-    border-left: .75rem solid var(--dark-color);
-    border-right: .75rem solid var(--dark-color);
+  &::after {
+    border-left: .75rem solid var(--darkColor);
+    border-right: .75rem solid var(--darkColor);
     content: "";
     display: block;
     height: 2.25rem;
@@ -56,19 +45,19 @@
 }
 
 .play {
-  &:after {
+  &::after {
     opacity: 0;
   }
-  &:before {
+  &::before {
     opacity: 1;
   }
 }
 
 .pause {
-  &:after {
+  &::after {
     opacity: 1;
   }
-  &:before {
+  &::before {
     opacity: 0;
   }
 }

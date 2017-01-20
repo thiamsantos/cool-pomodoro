@@ -1,33 +1,27 @@
-:root {
-  --brand-color-dark: #512DA8;
-  --accent-color: #35F44B;
-  --text-color-dark: #bdbdbd;
-}
-
 .footer {
-  background-color: var(--brand-color-dark);
+  background-color: var(--brandColorDark);
   padding-bottom: 1rem;
   padding-top: 1rem;
   text-align: center;
 
   & a:hover,
   & a:focus {
-    color: var(--text-color-dark);
+    color: var(--textColorDark);
   }
 }
 
 .heart {
   animation: pulse .5s infinite alternate ease-in;
-  background-color: var(--accent-color);
+  background-color: var(--accentColor);
   display: inline-block;
   height: 10px;
   margin: 0 5px;
   position: relative;
   width: 10px;
 
-  &:before,
-  &:after {
-    background-color: var(--accent-color);
+  &::before,
+  &::after {
+    background-color: var(--accentColor);
     border-radius: 50%;
     content: "";
     height: 10px;
@@ -35,12 +29,12 @@
     width: 10px;
   }
 
-  &:before {
+  &::before {
     left: 50%;
     top: 0;
   }
 
-  &:after {
+  &::after {
     left: 0;
     top: 50%;
   }

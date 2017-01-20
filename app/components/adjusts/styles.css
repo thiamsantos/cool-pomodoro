@@ -1,12 +1,5 @@
-:root {
-  --accent-color: #69F0AE;
-  --brand-color: #673AB7;
-  --brand-color-light: #7E57C2;
-  --brand-color-dark: #512DA8;
-}
-
 .adjusts {
-  background-color: var(--brand-color);
+  background-color: var(--brandColor);
   display: flex;
   flex-direction: column;
   font-size: 1.4rem;
@@ -50,11 +43,11 @@
   background-color: transparent;
   border: .1rem solid currentColor;
   display: block;
-  position: absolute;
-  width: 2rem;
   height: 2rem;
   left: -3rem;
+  position: absolute;
   top: 0;
+  width: 2rem;
 }
 
 .label {
@@ -65,26 +58,26 @@
   visibility: hidden;
 
   &:checked {
-    & + .label:after,
-    & + .label:before {
+    & + .label::after,
+    & + .label::before {
+      background-color: var(--accentColor);
       content: "";
       display: block;
       position: absolute;
-      background-color: var(--accent-color);
       transform: rotate(45deg);
     }
 
-    & + .label:after {
-      bottom: 0rem;
-      left: -1.8rem;
+    & + .label::after {
+      bottom: 0;
       height: 2rem;
+      left: -1.8rem;
       width: .5rem;
     }
 
-    & + .label:before {
+    & + .label::before {
       bottom: .4rem;
-      left: -2.8rem;
       height: .5rem;
+      left: -2.8rem;
       width: 1rem;
     }
   }

@@ -1,7 +1,6 @@
-:root {
-  --dark-color: #212121;
-  --brand-color: #673AB7;
-  --brand-color-light: #7E57C2;
+.octoArm {
+  fill: currentColor;
+  transform-origin: 130px 106px;
 }
 
 .githubCorner:hover .octoArm {
@@ -9,33 +8,28 @@
 }
 
 @media (max-width: 500px) {
+  .githubCorner .octoArm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
   .githubCorner:hover .octoArm {
     animation: none;
-  }
-  .githubCorner .octoArm {
-    animation: octocat-wave 560ms ease-in-out
   }
 }
 
 .octoCat {
   border: 0;
-  color: var(--dark-color);
-  fill: var(--brand-color);
+  color: var(--darkColor);
+  fill: var(--brandColor);
   height: 80px;
-  right: 0;
   position: fixed;
+  right: 0;
   top: 0;
   width: 80px;
 
   &:hover,
   &:focus {
-    fill: var(--brand-color-light);
+    fill: var(--brandColorLight);
   }
-}
-
-.octoArm {
-  fill: currentColor;
-  transform-origin: 130px 106px;
 }
 
 .octoBody {
