@@ -4,12 +4,18 @@ import {getTitle} from './services/utils'
 import keyboardShortcuts from './services/keyboard-shortcuts'
 import Root from './components/root'
 
-document.body.appendChild(Root(store))
+const {dispatch} = store
+
+document.body.appendChild(Root({state: store.getState(), dispatch}))
 
 const render = () => {
-  console.log(store.getState())
-  document.title = getTitle(store)
-  morphdom(document.getElementById('app'), Root(store))
+  const state = store.getState()
+  console.log(state)
+  document.title = getTitle(state)
+  morphdom(
+    document.getElementById('app'),
+    Root({state, dispatch})
+  )
 }
 
 const notify = () => {

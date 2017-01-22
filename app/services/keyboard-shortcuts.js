@@ -8,11 +8,12 @@ import {
 import {changeTimerPlayState, changeTimerType} from './actions'
 
 export default store => e => {
+  const state = store.getState()
   const shortcut = e.code
   const ctrlKeyIsPressed = e.ctrlKey
 
   if (shortcut === 'Space') {
-    store.dispatch(changeTimerPlayState(getNextPlayState(store)))
+    store.dispatch(changeTimerPlayState(getNextPlayState(state)))
     return false
   }
 
@@ -20,7 +21,7 @@ export default store => e => {
     return false
   }
 
-  const currentTimerType = store.getState().timer.type
+  const currentTimerType = state.timer.type
 
   if (shortcut === 'ArrowLeft') {
     const {type, value} = sequentiallyGetTimerType(

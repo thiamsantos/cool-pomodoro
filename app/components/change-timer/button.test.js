@@ -8,9 +8,12 @@ browserEnv(['document'])
 test('Button component', t => {
   const wrapper = document.createElement('div')
   wrapper.innerHTML = Button({
-    store,
-    timer: 90,
-    timerType: 'code'
+    state: store.getState(),
+    dispatch: store.dispatch,
+    timer: {
+      value: 90,
+      type: 'code'
+    }
   })
 
   const actual = wrapper.querySelector('button').textContent.trim()
@@ -24,11 +27,15 @@ test('Button component', t => {
 })
 
 test('changeTimer function', t => {
+  const target = document.createElement('div')
+
   changeTimer({
-    store,
-    timerType: 'drink',
-    timer: 200
-  })()
+    dispatch: store.dispatch,
+    timer: {
+      type: 'drink',
+      value: 200
+    }
+  })({target})
 
   t.equal(
     store.getState().timer.value,
@@ -40,10 +47,12 @@ test('changeTimer function', t => {
     'should change the timer type from the store')
 
   changeTimer({
-    store,
-    timerType: 'code',
-    timer: 1500
-  })()
+    dispatch: store.dispatch,
+    timer: {
+      type: 'code',
+      value: 1500
+    }
+  })({target})
 
   t.equal(
     store.getState().timer.value,
@@ -63,11 +72,11 @@ test('isActive function', t => {
   }
 
   t.equal(
-    isActive({store, timerType: 'drink'}, styles),
+    isActive({state: store.getState(), timerType: 'drink', styles}),
     '',
     'should return a empty if false')
   t.equal(
-    isActive({store, timerType: 'code'}, styles),
+    isActive({state: store.getState(), timerType: 'code', styles}),
     'active',
     'should return a className if true')
   t.end()

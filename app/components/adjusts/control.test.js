@@ -6,7 +6,11 @@ import {handleChange, default as Control} from './control'
 browserEnv(['document'])
 
 test('control component', t => {
-  const node = Control(store, 'vibration')
+  const node = Control({
+    state: store.getState(),
+    dispatch: store.dispatch,
+    name: 'vibration'
+  })
   const component = document.createElement('div')
   component.innerHTML = node
 
@@ -29,13 +33,13 @@ test('control component', t => {
 })
 
 test('handle change function', t => {
-  handleChange(store, 'vibration')()
+  handleChange(store.dispatch, 'vibration')()
 
   t.ok(
     store.getState().adjusts.vibration,
     'should toggle the property adjusts.vibration from the state')
 
-  handleChange(store, 'vibration')()
+  handleChange(store.dispatch, 'vibration')()
 
   t.notOk(
     store.getState().adjusts.vibration,

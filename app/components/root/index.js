@@ -7,14 +7,14 @@ import Adjusts from '../adjusts'
 import GithubCorner from '../github-corner'
 import styles from './styles.css'
 
-export default store =>
+export default ({state, dispatch}) =>
   bel`<div id="app" class=${styles.app}>
     ${GithubCorner('https://github.com/thiamsantos/cool-pomodoro')}
     <main class=${styles.main}>
-      ${Timer(store.getState())}
-      ${PlayStateControl(store)}
-      ${ChangeTimer(store)}
+      ${Timer(state)}
+      ${PlayStateControl({state, dispatch})}
+      ${ChangeTimer({state, dispatch})}
     </main>
-    ${Adjusts(store)}
+    ${Adjusts({state, dispatch})}
     ${Footer()}
   </div>`

@@ -17,10 +17,13 @@ const createFakeStore = playState => ({
 })
 
 test('PlayStateControl component', t => {
-  const store = createFakeStore('paused')
+  const fakeStore = createFakeStore('paused')
 
   const wrapper = document.createElement('div')
-  wrapper.innerHTML = PlayStateControl(store)
+  wrapper.innerHTML = PlayStateControl({
+    state: fakeStore.getState(),
+    dispatch: store.dispatch
+  })
 
   const actual = wrapper.querySelector('button').textContent.trim()
   const expected = 'play'
@@ -33,10 +36,13 @@ test('PlayStateControl component', t => {
 })
 
 test('PlayStateControl component', t => {
-  const store = createFakeStore('running')
+  const fakeStore = createFakeStore('running')
 
   const wrapper = document.createElement('div')
-  wrapper.innerHTML = PlayStateControl(store)
+  wrapper.innerHTML = PlayStateControl({
+    state: fakeStore.getState(),
+    dispatch: store.dispatch
+  })
 
   const actual = wrapper.querySelector('button').textContent.trim()
   const expected = 'pause'
@@ -49,19 +55,27 @@ test('PlayStateControl component', t => {
 })
 
 test('handleClick function', t => {
+  const target = document.createElement('div')
+
   t.equal(
     store.getState().timer.playState,
     'running',
     'the initial value should be running')
 
-  handleClick(store)()
+  handleClick({
+    state: store.getState(),
+    dispatch: store.dispatch
+  })({target})
 
   t.equal(
     store.getState().timer.playState,
     'paused',
     'after clicking should change the playState')
 
-  handleClick(store)()
+  handleClick({
+    state: store.getState(),
+    dispatch: store.dispatch
+  })({target})
 
   t.equal(
     store.getState().timer.playState,

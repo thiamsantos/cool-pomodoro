@@ -7,18 +7,18 @@ export const formatTime = seconds => {
 
 export const capitalize = str => str[0].toUpperCase() + str.slice(1)
 
-export const getTitle = store =>
-  `${formatTime(store.getState().timer.value)} | Pomodoro Timer`
+export const getTitle = state =>
+  `${formatTime(state.timer.value)} | Pomodoro Timer`
 
-export const isPaused = store => store.getState().timer.playState === 'paused'
+export const isPaused = state => state.timer.playState === 'paused'
 
-export const getNextPlayState = store => isPaused(store) ? 'running' : 'paused'
+export const getNextPlayState = state => isPaused(state) ? 'running' : 'paused'
 
-export const getPlayStateStyle = (store, styles) =>
-  isPaused(store) ? styles.play : styles.pause
+export const getPlayStateStyle = (state, styles) =>
+  isPaused(state) ? styles.play : styles.pause
 
-export const getNextPlayStateText = store =>
-  isPaused(store) ? 'play' : 'pause'
+export const getNextPlayStateText = state =>
+  isPaused(state) ? 'play' : 'pause'
 
 export const sequentiallyGetTimerType = (current, types, mode) =>
   types.reduce((acc, item, index, array) =>

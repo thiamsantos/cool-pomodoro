@@ -6,7 +6,8 @@ import {
   getPlayStateStyle,
   formatTime,
   capitalize,
-  getTitle
+  getTitle,
+  TIMER_TYPES
 } from './utils'
 
 const createFakeStore = playState => ({
@@ -34,16 +35,13 @@ test('capitalize function', t => {
 })
 
 test('getTitle function', t => {
-  const store = {
-    getState() {
-      return {
-        timer: {
-          value: 1200
-        }
-      }
+  const state = {
+    timer: {
+      value: 1200
     }
   }
-  const actual = getTitle(store)
+
+  const actual = getTitle(state)
   const expected = '20:00 | Pomodoro Timer'
 
   t.equal(
@@ -54,21 +52,33 @@ test('getTitle function', t => {
 })
 
 test('isPaused function', t => {
-  const store = createFakeStore('running')
-  t.notOk(isPaused(store), 'by default the state should be running')
+  const state = {
+    timer: {
+      playState: 'running'
+    }
+  }
+  t.notOk(isPaused(state), 'by default the state should be running')
   t.end()
 })
 
 test('isPaused function', t => {
-  const store = createFakeStore('paused')
+  const state = {
+    timer: {
+      playState: 'paused'
+    }
+  }
 
-  t.ok(isPaused(store), 'should return true')
+  t.ok(isPaused(state), 'should return true')
   t.end()
 })
 
 test('getNextPlayState function', t => {
-  const store = createFakeStore('running')
-  const actual = getNextPlayState(store)
+  const state = {
+    timer: {
+      playState: 'running'
+    }
+  }
+  const actual = getNextPlayState(state)
   const expected = 'paused'
 
   t.equal(actual, expected, 'should return the next play state: paused')
@@ -76,9 +86,13 @@ test('getNextPlayState function', t => {
 })
 
 test('getNextPlayState function', t => {
-  const store = createFakeStore('paused')
+  const state = {
+    timer: {
+      playState: 'paused'
+    }
+  }
 
-  const actual = getNextPlayState(store)
+  const actual = getNextPlayState(state)
   const expected = 'running'
 
   t.equal(actual, expected, 'should return the next play state: running')
@@ -86,8 +100,12 @@ test('getNextPlayState function', t => {
 })
 
 test('getNextPlayStateText function', t => {
-  const store = createFakeStore('running')
-  const actual = getNextPlayStateText(store)
+  const state = {
+    timer: {
+      playState: 'running'
+    }
+  }
+  const actual = getNextPlayStateText(state)
   const expected = 'pause'
 
   t.equal(
@@ -98,9 +116,13 @@ test('getNextPlayStateText function', t => {
 })
 
 test('getNextPlayStateText function', t => {
-  const store = createFakeStore('paused')
+  const state = {
+    timer: {
+      playState: 'paused'
+    }
+  }
 
-  const actual = getNextPlayStateText(store)
+  const actual = getNextPlayStateText(state)
   const expected = 'play'
 
   t.equal(
@@ -111,13 +133,17 @@ test('getNextPlayStateText function', t => {
 })
 
 test('getPlayStateStyle function', t => {
-  const store = createFakeStore('running')
+  const state = {
+    timer: {
+      playState: 'running'
+    }
+  }
   const styles = {
     play: 'play',
     pause: 'pause'
   }
 
-  const actual = getPlayStateStyle(store, styles)
+  const actual = getPlayStateStyle(state, styles)
   const expected = 'pause'
 
   t.equal(
@@ -128,13 +154,17 @@ test('getPlayStateStyle function', t => {
 })
 
 test('getPlayStateStyle function', t => {
-  const store = createFakeStore('paused')
+  const state = {
+    timer: {
+      playState: 'paused'
+    }
+  }
   const styles = {
     play: 'play',
     pause: 'pause'
   }
 
-  const actual = getPlayStateStyle(store, styles)
+  const actual = getPlayStateStyle(state, styles)
   const expected = 'play'
 
   t.equal(
@@ -143,3 +173,29 @@ test('getPlayStateStyle function', t => {
     'should return a className')
   t.end()
 })
+
+test('TIMER_TYPES const', t => {
+  const obj = {}
+  const actual = obj.toString.call(TIMER_TYPES)
+  const expected = '[object Array]'
+
+  t.equal(actual, expected, 'the const should be array')
+  t.end()
+})
+
+test('TIMER_TYPES const', t => {
+  const actual = TIMER_TYPES.length
+  const expected = 3
+
+  t.equal(actual, expected, 'the const should have 3 items')
+  t.end()
+})
+
+test('TIMER_TYPES const', t => {
+  const actual = typeof TIMER_TYPES[0]
+  const expected = 'object'
+
+  t.equal(actual, expected, 'the items in the const should be an object')
+  t.end()
+})
+

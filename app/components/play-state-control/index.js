@@ -7,14 +7,14 @@ import {
 } from '../../services/utils'
 import styles from './styles.css'
 
-export const handleClick = store => e => {
-  store.dispatch(changeTimerPlayState(getNextPlayState(store)))
+export const handleClick = ({state, dispatch}) => e => {
+  dispatch(changeTimerPlayState(getNextPlayState(state)))
   e.target.blur()
 }
 
-export default store =>
+export default ({state, dispatch}) =>
   bel`<button
-    class="${styles.button} ${getPlayStateStyle(store, styles)}"
-    onclick=${handleClick(store)}>
-    ${getNextPlayStateText(store)}
+    class="${styles.button} ${getPlayStateStyle(state, styles)}"
+    onclick=${handleClick({state, dispatch})}>
+    ${getNextPlayStateText(state)}
   </button>`
