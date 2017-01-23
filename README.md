@@ -42,7 +42,7 @@ $ npm install
 # Run the build script and start the server
 $ npm start
 ```
-With the server running go to [localhost:3000](localhost:3000)
+With the server running go to [localhost:3000](http://localhost:3000)
 
 ## Contributing
 Coming soon...
