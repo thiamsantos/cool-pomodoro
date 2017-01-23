@@ -26,7 +26,7 @@ Coming soon...
 ## Running locally
 First of all, install the dependecies to run this project
 - [NodeJS](https://nodejs.org/en/)
-- [yarn](https://yarnpkg.com/) (optional dependencie)
+- [yarn](https://yarnpkg.com/) (optional dependency)
 
 ```sh
 # Clone this repository
