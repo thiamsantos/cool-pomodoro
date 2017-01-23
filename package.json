@@ -13,12 +13,13 @@
     "build:js": "webpack --config config/webpack.production.config.js",
     "watch:js": "webpack --config config/webpack.development.config.js --watch --colors",
     "watch:test": "tape-watch -r babel-register -r ignore-styles app/**/*.test.js",
+    "watch": "run-s clean:build build:folders build:static && run-p watch:js watch:test watch:server",
     "server": "browser-sync start -s build",
     "watch:server": "npm run server -- --files \"build/**/*\"",
     "clean:build": "shx rm -rf build",
     "build:folders": "shx mkdir -p build/assets",
     "build:static": "shx cp -r static/* build",
-    "start": "npm run clean:build && npm run build:folders && npm run build:static && npm run build:js && npm run server"
+    "start": "run-s clean:build build:folders build:static build:js server"
   },
   "repository": {
     "type": "git",
@@ -64,6 +65,7 @@
     "husky": "^0.13.1",
     "ignore-styles": "^5.0.1",
     "morphdom": "^2.3.1",
+    "npm-run-all": "^4.0.1",
     "nyc": "^10.0.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-loader": "^1.2.2",
