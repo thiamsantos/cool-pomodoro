@@ -24,10 +24,10 @@ export const sequentiallyGetTimerType = (current, types, mode) =>
   types.reduce((acc, item, index, array) =>
     item.type === current ? mode(array, index) : acc, {})
 
-export const isFirstItem = (array, index) => index === 0
+export const isFirstItem = index => index === 0
 
 export const getPreviousItem = (array, index) => {
-  const previousIndex = isFirstItem(array, index) ?
+  const previousIndex = isFirstItem(index) ?
     array.length - 1 :
     index - 1
   return array[previousIndex]
