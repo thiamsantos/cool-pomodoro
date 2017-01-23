@@ -13,7 +13,12 @@
     "build:js": "webpack --config config/webpack.production.config.js",
     "watch:js": "webpack --config config/webpack.development.config.js --watch --colors",
     "watch:test": "tape-watch -r babel-register -r ignore-styles app/**/*.test.js",
-    "serve": "browser-sync start -s build --files \"build/**/*\""
+    "server": "browser-sync start -s build",
+    "watch:server": "npm run server -- --files \"build/**/*\"",
+    "clean:build": "shx rm -rf build",
+    "build:folders": "shx mkdir -p build/assets",
+    "build:static": "shx cp -r static/* build",
+    "start": "npm run clean:build && npm run build:folders && npm run build:static && npm run build:js && npm run server"
   },
   "repository": {
     "type": "git",
@@ -64,6 +69,7 @@
     "postcss-loader": "^1.2.2",
     "redux": "^3.6.0",
     "rollup-watch": "^3.2.2",
+    "shx": "^0.2.2",
     "style-loader": "^0.13.1",
     "stylelint": "^7.7.1",
     "tape": "^4.6.3",

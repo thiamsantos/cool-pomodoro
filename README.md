@@ -24,11 +24,11 @@ The main goal of the project is build a complete react-like app using only the c
 Coming soon...
 
 ## Running locally
-<!-- First of all, install the dependecies to run this project
+First of all, install the dependecies to run this project
 - [NodeJS](https://nodejs.org/en/)
 - [yarn](https://yarnpkg.com/) (optional dependencie)
 
-```
+```sh
 # Clone this repository
 $ git clone https://github.com/thiamsantos/cool-pomodoro.git
 $ cd cool-pomodoro
@@ -39,9 +39,10 @@ $ yarn
 # or with you use npm
 $ npm install
 
-
-``` -->
-Coming soon...
+# Run the build script and start the server
+$ npm start
+```
+With the server running go to [localhost:3000](localhost:3000)
 
 ## Contributing
 Coming soon...
