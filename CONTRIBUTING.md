@@ -56,6 +56,7 @@ The follow scripts are available when you develop.
 - `npm run build:folders` - Create the build folders.
 - `npm run build:static` - Copy the static files to the build folder.
 - `npm run build:js` - Run webpack for production.
+- `npm run build` - Build for production.
 - `npm run watch:js` - Run webpack for development in watch mode.
 - `npm run server` - Start a server at localhost:3000.
 - `npm run watch:server` - Start a server at localhost:3000 with livereloading.

@@ -47,10 +47,10 @@ export const TIMER_TYPES = [
   },
   {
     type: 'social',
-    value: 300
+    value: 900
   },
   {
     type: 'coffee',
-    value: 900
+    value: 300
   }
 ]

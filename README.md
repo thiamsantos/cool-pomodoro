@@ -18,7 +18,7 @@ PS: If you know some other cool library that can be added to the project, feel f
 
 ## Features
 - Timer for code 25 minutes.
-- Timer for coffee 15 minutes.
+- Timer for coffee 5 minutes.
 - Timer for social 15 minutes.
 - Time display on the screen.
 - Time display on page's title.
@@ -48,7 +48,7 @@ $ npm install
 # Run the build script and start the server
 $ npm start
 ```
-With the server running go to [localhost:3000](http://localhost:3000)
+With the server running go to [localhost:3000](http://localhost:3000).
 
 ## Contributing
 See the [contributing file](CONTRIBUTING.md).
