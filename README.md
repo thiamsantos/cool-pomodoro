@@ -16,13 +16,6 @@ The main goal of the project is build a complete react-like app using only the c
 
 PS: If you know some other cool library that can be added to the project, feel free to open a issue to discuss about it. :wink:
 
-## Table of contents
-- [Features](#features)
-- [Keyboard Shortcuts](#keyboard-shortcuts)
-- [Running locally](#running-locally)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Features
 - Timer for code 25 minutes.
 - Timer for coffee 15 minutes.
