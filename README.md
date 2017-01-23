@@ -18,12 +18,23 @@ PS: If you know some other cool library that can be added to the project, feel f
 
 ## Table of contents
 - [Features](#features)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
 - [Running locally](#running-locally)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Features
-Coming soon...
+- Timer for code 25 minutes.
+- Timer for coffee 15 minutes.
+- Timer for social 15 minutes.
+- Time display on the screen.
+- Time display on page's title.
+- Vibrate when the time is over.
+
+## Keyboard Shortcuts
+- Space: play/pause the timer.
+- Ctrl + Arrow Right: Change the timer type.
+- Ctrl + Arrow Left: Change the timer type.
 
 ## Running locally
 First of all, install the dependecies to run this project
