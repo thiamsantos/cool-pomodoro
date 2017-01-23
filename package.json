@@ -10,8 +10,8 @@
     "lint:js": "xo app/**/*.js",
     "lint:css": "stylelint \"app/**/*.css\" --config config/stylelint.config.js",
     "lint": "npm run lint:js && npm run lint:css",
-    "build:js": "webpack",
-    "watch:js": "webpack --watch",
+    "build:js": "webpack --config config/webpack.production.config.js",
+    "watch:js": "webpack --config config/webpack.development.config.js --watch --colors",
     "watch:test": "tape-watch -r babel-register -r ignore-styles app/**/*.test.js",
     "serve": "browser-sync start -s build --files \"build/**/*\""
   },
