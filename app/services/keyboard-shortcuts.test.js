@@ -22,7 +22,7 @@ test('keyboardShortcut space', t => {
 })
 
 test('keyboardShortcut ctrl', t => {
-  const ctrl = keyboardShortcuts(store)({ctrlKey: true})
+  const ctrl = keyboardShortcuts(store)({ctrlKey: false})
   t.notOk(ctrl, 'should return false in order to stop the event')
   t.deepEqual(
     store.getState().timer,

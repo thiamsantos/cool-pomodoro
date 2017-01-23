@@ -15,14 +15,6 @@ import {
   sequentiallyGetTimerType
 } from './utils'
 
-const createFakeStore = playState => ({
-  getState: () => ({
-    timer: {
-      playState
-    }
-  })
-})
-
 test('formatTime function', t => {
   const actual = formatTime(1200)
   const expected = '20:00'
@@ -234,7 +226,6 @@ test('TIMER_TYPES const', t => {
 
 test('TIMER_TYPES const', t => {
   for (const item of TIMER_TYPES) {
-
     const actual = typeof item.type
     const expected = 'string'
 
