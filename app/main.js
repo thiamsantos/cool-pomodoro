@@ -29,6 +29,21 @@ const notify = () => {
       const sound = new Audio('audio/alarm.mp3')
       sound.play()
     }
+    if (state.adjusts.notification && 'Notification' in window) {
+      if (state.timer.type === 'code') {
+        new Notification('Relax :)', {
+          lang: 'en',
+          icon: 'img/coffee.png',
+          body: 'Go talk or drink a coffee!'
+        })
+      } else {
+        new Notification('The time is over', {
+          lang: 'en',
+          icon: 'img/code.png',
+          body: 'Hey back to code!'
+        })
+      }
+    }
   }
 }
 
