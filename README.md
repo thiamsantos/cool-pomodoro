@@ -23,6 +23,7 @@ PS: If you know some other cool library that can be added to the project, feel f
 - Time display on the screen.
 - Time display on page's title.
 - Vibrate when the time is over.
+- Sound notification when the time is over.
 
 ## Keyboard Shortcuts
 - Space: play/pause the timer.
