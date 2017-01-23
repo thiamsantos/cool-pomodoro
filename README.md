@@ -14,6 +14,8 @@ The main goal of the project is build a complete react-like app using only the c
 - [redux](https://github.com/reactjs/redux) for a predictable state management.
 - [css-modules](https://github.com/css-modules/css-modules) for an easy modular and reusable CSS.
 
+PS: If you know some other cool library that can be added to the project, feel free to open a issue to discuss about it. :wink:
+
 ## Table of contents
 - [Features](#features)
 - [Running locally](#running-locally)
@@ -45,7 +47,7 @@ $ npm start
 With the server running go to [localhost:3000](http://localhost:3000)
 
 ## Contributing
-Coming soon...
+See the [contributing file](CONTRIBUTING.md).
 
 ## License
 [MIT License](LICENSE.md) &copy; [Thiago Santos](https://thiamsantos.github.io/)
