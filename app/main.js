@@ -26,7 +26,7 @@ const notify = () => {
       window.navigator.vibrate(1000)
     }
     if (state.adjusts.sound) {
-      const sound = new Audio('../audio/alarm.mp3')
+      const sound = new Audio('audio/alarm.mp3')
       sound.play()
     }
   }
