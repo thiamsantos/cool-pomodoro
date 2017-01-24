@@ -17,13 +17,16 @@ The main goal of the project is build a complete react-like app using only the c
 PS: If you know some other cool library that can be added to the project, feel free to open a issue to discuss about it. :wink:
 
 ## Features
-- Timer for code 25 minutes.
-- Timer for coffee 5 minutes.
-- Timer for social 15 minutes.
+- Timer for code: 25 minutes.
+- Timer for coffee: 5 minutes.
+- Timer for social: 15 minutes.
 - Time display on the screen.
 - Time display on page's title.
+- Add to homescreen.
 - Vibrate when the time is over.
 - Sound notification when the time is over.
+- Offline support.
+- Web notifications support.
 
 ## Keyboard Shortcuts
 - Space: play/pause the timer.
