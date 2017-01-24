@@ -32,6 +32,9 @@
   "bugs": {
     "url": "https://github.com/thiamsantos/cool-pomodoro/issues"
   },
+  "nyc": {
+    "include": ["app/components/**/*.js", "app/services/**/*.js"]
+  },
   "xo": {
     "esnext": true,
     "envs": [
