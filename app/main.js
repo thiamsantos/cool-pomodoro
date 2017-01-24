@@ -11,7 +11,6 @@ document.body.appendChild(Root({state: store.getState(), dispatch}))
 
 const render = () => {
   const state = store.getState()
-  console.log('app', state.timer.playState)
   document.title = getTitle(state)
   morphdom(
     document.getElementById('app'),
@@ -66,3 +65,7 @@ setInterval(() => {
 }, 1000)
 
 document.addEventListener('keyup', keyboardShortcuts(store))
+
+if ('serviceWorker' in navigator || window.location.hostname === 'localhost') {
+  navigator.serviceWorker.register('service-worker.js')
+}
