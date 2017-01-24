@@ -3,7 +3,8 @@ import {
   decrementTimer,
   changeTimerType,
   changeTimerPlayState,
-  toggleAdjust
+  toggleAdjust,
+  resetTimer
 } from './actions'
 
 test('decrementTimer action', t => {
@@ -65,5 +66,21 @@ test('toggleAdjust action', t => {
     actual,
     expected,
     'should return a plain object with the name of the field to be toggled')
+  t.end()
+})
+
+test('resetTimer action', t => {
+  const actual = resetTimer(700)
+  const expected = {
+    type: 'RESET_TIMER',
+    payload: {
+      value: 700
+    }
+  }
+
+  t.deepEqual(
+    actual,
+    expected,
+    'should return a plain object with the value to reset')
   t.end()
 })

@@ -67,6 +67,24 @@ test('timer reducer', t => {
   t.end()
 })
 
+test('timer reducer', t => {
+  const action = {
+    type: 'RESET_TIMER',
+    payload: {
+      value: 700
+    }
+  }
+  const actual = timer(timerInitialState, action)
+  const expected = {
+    playState: 'paused',
+    value: 700,
+    type: 'code'
+  }
+
+  t.deepEqual(actual, expected, 'should reset the timer')
+  t.end()
+})
+
 test('adjusts reducer', t => {
   const actual = adjusts(undefined, {})
   const expected = adjustsInitialState
