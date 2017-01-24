@@ -5,7 +5,7 @@
   "display": "standalone",
   "background_color": "#212121",
   "lang": "en-US",
-  "theme_color": "#69f0ae",
+  "theme_color": "#673ab7",
   "description": "Pomodoro timer built with cool libraries.",
   "icons": [{
     "src": "img/logo48.png",
