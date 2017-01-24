@@ -62,20 +62,14 @@ test('handleClick function', t => {
     'running',
     'the initial value should be running')
 
-  handleClick({
-    state: store.getState(),
-    dispatch: store.dispatch
-  })({target})
+  handleClick({target})
 
   t.equal(
     store.getState().timer.playState,
     'paused',
     'after clicking should change the playState')
 
-  handleClick({
-    state: store.getState(),
-    dispatch: store.dispatch
-  })({target})
+  handleClick({target})
 
   t.equal(
     store.getState().timer.playState,

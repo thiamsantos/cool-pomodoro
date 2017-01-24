@@ -2,7 +2,8 @@ import {
   DECREMENT_TIMER,
   CHANGE_TIMER_TYPE,
   CHANGE_TIMER_PLAY_STATE,
-  TOGGLE_ADJUST
+  TOGGLE_ADJUST,
+  RESET_TIMER
 } from './actions'
 
 export const timerInitialState = {
@@ -33,6 +34,12 @@ export const timer = (state = timerInitialState, action) => {
       return {
         playState: 'running',
         type: action.payload.type,
+        value: action.payload.value
+      }
+    case RESET_TIMER:
+      return {
+        playState: 'paused',
+        type: state.type,
         value: action.payload.value
       }
     default:

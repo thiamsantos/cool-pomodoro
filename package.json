@@ -72,6 +72,7 @@
     "postcss-cssnext": "^2.9.0",
     "postcss-loader": "^1.2.2",
     "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
     "rollup-watch": "^3.2.2",
     "shx": "^0.2.2",
     "style-loader": "^0.13.1",

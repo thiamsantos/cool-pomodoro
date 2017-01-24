@@ -1,6 +1,7 @@
 import morphdom from 'morphdom'
 import store from './services/store'
-import {getTitle} from './services/utils'
+import {getTitle, getValueToResetTimer, TIMER_TYPES} from './services/utils'
+import {resetTimer} from './services/actions'
 import keyboardShortcuts from './services/keyboard-shortcuts'
 import Root from './components/root'
 
@@ -10,7 +11,7 @@ document.body.appendChild(Root({state: store.getState(), dispatch}))
 
 const render = () => {
   const state = store.getState()
-  console.log(state)
+  console.log('app', state.timer.playState)
   document.title = getTitle(state)
   morphdom(
     document.getElementById('app'),
@@ -22,6 +23,10 @@ const notify = () => {
   const state = store.getState()
 
   if (state.timer.value === 0) {
+    if (state.timer.playState === 'running') {
+      store.dispatch(resetTimer(getValueToResetTimer(state.timer.type,
+        TIMER_TYPES)))
+    }
     if (state.adjusts.vibration && 'vibrate' in window.navigator) {
       window.navigator.vibrate(1000)
     }

@@ -54,3 +54,8 @@ export const TIMER_TYPES = [
     value: 300
   }
 ]
+
+export const getValueToResetTimer = (current, timerTypes) => {
+  const currentTimer = timerTypes.filter(timer => timer.type === current)
+  return currentTimer.length ? currentTimer[0].value : 0
+}

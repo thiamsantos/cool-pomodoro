@@ -12,7 +12,8 @@ import {
   isFirstItem,
   getNextItem,
   getPreviousItem,
-  sequentiallyGetTimerType
+  sequentiallyGetTimerType,
+  getValueToResetTimer
 } from './utils'
 
 test('formatTime function', t => {
@@ -339,5 +340,29 @@ test('sequentiallyGetTimerType function', t => {
     actual,
     expected,
     'should return the previous object of the array')
+  t.end()
+})
+
+test('getValueToResetTimer function', t => {
+  const timerTypes = [{type: 'code', value: 1500}]
+  const actual = getValueToResetTimer('code', timerTypes)
+  const expected = 1500
+
+  t.equal(
+    actual,
+    expected,
+    'should return the default value of the timer type matched')
+  t.end()
+})
+
+test('getValueToResetTimer function', t => {
+  const timerTypes = [{type: 'code', value: 1500}]
+  const actual = getValueToResetTimer('drink', timerTypes)
+  const expected = 0
+
+  t.equal(
+    actual,
+    expected,
+    'should return 0 if the current type doesnt exist')
   t.end()
 })
