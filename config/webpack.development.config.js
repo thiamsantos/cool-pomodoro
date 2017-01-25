@@ -11,40 +11,47 @@ module.exports = {
     filename: 'main.js'
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['es2015'],
-        plugins: ['transform-object-rest-spread']
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015'],
+            plugins: ['transform-object-rest-spread']
+          }
+        }]
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader?modules&importLoaders=1&localIdentName=[local][hash:base64:5]!postcss-loader'
+          })
       }
-    }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader',
-        'css-loader?modules&importLoaders=1&localIdentName=[local][hash:base64:5]!postcss-loader')
-    }]
-  },
-  postcss() {
-    return [
-      stylelint({
-        configFile: 'config/stylelint.config.js'
-      }),
-      cssNext({
-        features: {
-          customProperties: {variables: cssVariables}
-        }
-      })
     ]
   },
   plugins: [
     new ExtractTextPlugin('main.css'),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [
+          stylelint({
+            configFile: 'config/stylelint.config.js'
+          }),
+          cssNext({
+            features: {
+              customProperties: {variables: cssVariables}
+            }
+          })
+        ]
+      }
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
       }
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin()
+    })
   ]
 }
