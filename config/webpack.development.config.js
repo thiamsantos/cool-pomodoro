@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const cssNext = require('postcss-cssnext')
 const cssVariables = require('./css-variables')
@@ -7,7 +8,7 @@ const stylelint = require('stylelint')
 module.exports = {
   entry: './app/main.js',
   output: {
-    path: './build/assets',
+    path: path.join(__dirname, '../build/assets'),
     filename: 'main.js'
   },
   module: {
@@ -27,7 +28,7 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader?modules&importLoaders=1&localIdentName=[local][hash:base64:5]!postcss-loader'
+          loader: 'css-loader?localIdentName=[path][hash:base64:5]&modules&importLoaders=1!postcss-loader'
           })
       }
     ]
@@ -36,6 +37,7 @@ module.exports = {
     new ExtractTextPlugin('main.css'),
     new webpack.LoaderOptionsPlugin({
       options: {
+        context: path.join(__dirname, '..'),
         postcss: [
           stylelint({
             configFile: 'config/stylelint.config.js'
