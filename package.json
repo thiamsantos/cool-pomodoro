@@ -13,9 +13,9 @@
     "clean:build": "shx rm -rf build",
     "build:folders": "shx mkdir -p build",
     "build:static": "shx cp -r static/* build",
-    "build:js": "webpack --config config/webpack.production.config.js",
+    "build:js": "rollup -c config/rollup.config.js --environment NODE_ENV:production",
     "build": "run-s clean:build build:folders build:static build:js",
-    "watch:js": "webpack --config config/webpack.development.config.js --watch --colors",
+    "watch:js": "rollup -c config/rollup.config.js -w",
     "server": "browser-sync start -s build",
     "watch:server": "npm run server -- --files \"build/**/*\"",
     "watch": "run-s clean:build build:folders build:static && run-p watch:js watch:test watch:server",
@@ -61,7 +61,7 @@
   "devDependencies": {
     "aphrodite": "^1.2.0",
     "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-preset-es2015": "^6.18.0",
     "babel-register": "^6.18.0",
@@ -74,10 +74,16 @@
     "npm-run-all": "^4.0.1",
     "nyc": "^10.0.0",
     "redux": "^3.6.0",
+    "rollup": "^0.41.5",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^7.1.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^3.2.2",
     "shx": "^0.2.2",
     "tape": "^4.6.3",
     "tape-watch": "^2.2.4",
-    "webpack": "beta",
     "xo": "^0.17.1"
   }
 }
