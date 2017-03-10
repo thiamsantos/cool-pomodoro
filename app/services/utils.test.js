@@ -3,7 +3,6 @@ import {
   isPaused,
   getNextPlayState,
   getNextPlayStateText,
-  getPlayStateStyle,
   formatTime,
   capitalize,
   getTitle,
@@ -127,48 +126,6 @@ test('getNextPlayStateText function', t => {
     actual,
     expected,
     'should return the type of the action to be triggered: play')
-  t.end()
-})
-
-test('getPlayStateStyle function', t => {
-  const state = {
-    timer: {
-      playState: 'running'
-    }
-  }
-  const styles = {
-    play: 'play',
-    pause: 'pause'
-  }
-
-  const actual = getPlayStateStyle(state, styles)
-  const expected = 'pause'
-
-  t.equal(
-    actual,
-    expected,
-    'should return a className')
-  t.end()
-})
-
-test('getPlayStateStyle function', t => {
-  const state = {
-    timer: {
-      playState: 'paused'
-    }
-  }
-  const styles = {
-    play: 'play',
-    pause: 'pause'
-  }
-
-  const actual = getPlayStateStyle(state, styles)
-  const expected = 'play'
-
-  t.equal(
-    actual,
-    expected,
-    'should return a className')
   t.end()
 })
 

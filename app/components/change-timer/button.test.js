@@ -1,7 +1,7 @@
 import test from 'tape'
 import browserEnv from 'browser-env'
 import store from '../../services/store'
-import {default as Button, changeTimer, isActive} from './button'
+import {default as Button, changeTimer} from './button'
 
 browserEnv(['document'])
 
@@ -63,21 +63,5 @@ test('changeTimer function', t => {
     'code',
     'should change the timer type from the store')
 
-  t.end()
-})
-
-test('isActive function', t => {
-  const styles = {
-    buttonActive: 'active'
-  }
-
-  t.equal(
-    isActive({state: store.getState(), timerType: 'drink', styles}),
-    '',
-    'should return a empty if false')
-  t.equal(
-    isActive({state: store.getState(), timerType: 'code', styles}),
-    'active',
-    'should return a className if true')
   t.end()
 })

@@ -13,7 +13,7 @@ The main goal of the project is build a complete react-like app using only the c
 - [bel](https://github.com/shama/bel) for composable DOM elements using tagged template strings. An good alternative to [jsx](https://facebook.github.io/react/docs/introducing-jsx.html).
 - [morphdom](https://github.com/patrick-steele-idem/morphdom) for fast and lightweight DOM diffing/patching (no virtual DOM needed). Because the real DOM [isn't that slow](https://github.com/patrick-steele-idem/morphdom#isnt-the-dom-slow).
 - [redux](https://github.com/reactjs/redux) for a predictable state management.
-- [css-modules](https://github.com/css-modules/css-modules) for an easy modular and reusable CSS.
+- [aphrodite](https://github.com/Khan/aphrodite) for an easy modular and reusable CSS using [CSS in JS](https://speakerdeck.com/vjeux/react-css-in-js).
 
 PS: If you know some other cool library that can be added to the project, feel free to open a issue to discuss about it. :wink:
 

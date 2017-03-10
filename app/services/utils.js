@@ -14,9 +14,6 @@ export const isPaused = state => state.timer.playState === 'paused'
 
 export const getNextPlayState = state => isPaused(state) ? 'running' : 'paused'
 
-export const getPlayStateStyle = (state, styles) =>
-  isPaused(state) ? styles.play : styles.pause
-
 export const getNextPlayStateText = state =>
   isPaused(state) ? 'play' : 'pause'
 
@@ -58,4 +55,15 @@ export const TIMER_TYPES = [
 export const getValueToResetTimer = (current, timerTypes) => {
   const currentTimer = timerTypes.filter(timer => timer.type === current)
   return currentTimer.length ? currentTimer[0].value : 0
+}
+
+export const cssVariables = {
+  textColor: '#fafafa',
+  textColorAccent: '#9575cd',
+  textColorDark: '#bdbdbd',
+  darkColor: '#212121',
+  accentColor: '#69f0ae',
+  brandColor: '#673ab7',
+  brandColorLight: '#7e57c2',
+  brandColorDark: '#512da8'
 }
