@@ -1,20 +1,18 @@
-import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import replace from 'rollup-plugin-replace'
 import uglify from 'rollup-plugin-uglify'
+import buble from 'rollup-plugin-buble'
 
 export default {
   entry: 'app/main.js',
   format: 'iife',
   plugins: [
-    babel({
-      exclude: 'node_modules/**',
-      babelrc: false,
-      presets: [
-        ['es2015', {loose:true, modules: false}]
-      ],
-      plugins: ['transform-object-rest-spread', 'external-helpers']
+    buble({
+      objectAssign: 'Object.assign',
+      transforms: {
+        dangerousTaggedTemplateString: true
+      }
     }),
     nodeResolve({
       jsnext: true,

@@ -50,10 +50,10 @@ export const timer = (state = timerInitialState, action) => {
 export const adjusts = (state = adjustsInitialState, action) => {
   switch (action.type) {
     case TOGGLE_ADJUST:
-      return {
+      return ({
         ...state,
         [action.payload.name]: !state[action.payload.name]
-      }
+      })
     default:
       return state
   }
