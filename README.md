@@ -1,7 +1,5 @@
 # [Cool Pomodoro](https://thiamsantos.github.io/cool-pomodoro/)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/thiamsantos/cool-pomodoro.svg)](https://greenkeeper.io/)
-
 [![Travis](https://img.shields.io/travis/thiamsantos/cool-pomodoro.svg)](https://travis-ci.org/thiamsantos/cool-pomodoro)
 [![Coveralls](https://img.shields.io/coveralls/thiamsantos/cool-pomodoro.svg)](https://coveralls.io/github/thiamsantos/cool-pomodoro?branch=master)
 [![GitHub release](https://img.shields.io/github/release/thiamsantos/cool-pomodoro.svg)](https://github.com/thiamsantos/cool-pomodoro/releases/latest)
