@@ -3,7 +3,7 @@
   "version": "1.3.0",
   "description": "Pomodoro timer built with cool libraries",
   "scripts": {
-    "deploy": "npm run build && cd build && git init && git add . && git commit -am \"Deploy\" && git push --force https://github.com/thiamsantos/cool-pomodoro.git master:gh-pages && cd ..",
+    "deploy": "git push origin $(git subtree split --prefix public master):gh-pages --force",
     "test": "tape -r babel-register app/**/*.test.js",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "watch:test": "tape-watch -r babel-register app/**/*.test.js",
