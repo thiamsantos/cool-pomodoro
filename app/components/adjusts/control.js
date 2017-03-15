@@ -4,7 +4,8 @@ import {toggleAdjust} from '../../services/actions'
 import {capitalize, cssVariables} from '../../services/utils'
 
 export const handleChange = (dispatch, name) => () => {
-  dispatch(toggleAdjust(name.toLowerCase()))
+  const action = toggleAdjust(name.toLowerCase())
+  dispatch(action)
 }
 
 const labelCheckedAfterBeforeStyle = {

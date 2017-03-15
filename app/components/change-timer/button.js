@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
 })
 
 export const changeTimer = ({dispatch, timer}) => e => {
-  dispatch(changeTimerType(timer.type, timer.value))
+  const action = changeTimerType(timer.type, timer.value)
+  dispatch(action)
   e.target.blur()
 }
 

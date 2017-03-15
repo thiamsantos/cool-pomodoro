@@ -1,3 +1,4 @@
+import {pipe} from 'paretojs'
 import {
   getNextPlayState,
   sequentiallyGetTimerType,
@@ -13,7 +14,9 @@ export default store => e => {
   const ctrlKeyIsPressed = e.ctrlKey
 
   if (shortcut === 'Space') {
-    store.dispatch(changeTimerPlayState(getNextPlayState(state)))
+    const actionCreator = pipe(getNextPlayState, changeTimerPlayState)
+    const action = actionCreator(state)
+    store.dispatch(action)
     return false
   }
 

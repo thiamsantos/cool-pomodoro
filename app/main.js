@@ -1,5 +1,5 @@
 import morphdom from 'morphdom'
-import {throttle} from 'paretojs'
+import {throttle, pipe} from 'paretojs'
 import store from './services/store'
 import {getTitle, getValueToResetTimer, TIMER_TYPES} from './services/utils'
 import {resetTimer} from './services/actions'
@@ -13,12 +13,16 @@ document.body.appendChild(Root({state: store.getState(), dispatch}))
 
 const render = () => {
   const state = store.getState()
-  saveState(localStorage, {adjusts: state.adjusts})
-  document.title = getTitle(state)
+
   morphdom(
     document.getElementById('app'),
     Root({state, dispatch})
   )
+}
+
+const setTitle = () => {
+  const state = store.getState()
+  document.title = getTitle(state)
 }
 
 const save = () => {
@@ -29,10 +33,11 @@ const save = () => {
 const notify = () => {
   const state = store.getState()
 
-  if (state.timer.value === 0) {
+  if (state.timer.value <= 0) {
     if (state.timer.playState === 'running') {
-      store.dispatch(resetTimer(getValueToResetTimer(state.timer.type,
-        TIMER_TYPES)))
+      const actionCreator = pipe(getValueToResetTimer, resetTimer)
+      const action = actionCreator(state.timer.type, TIMER_TYPES)
+      store.dispatch(action)
     }
     if (state.adjusts.vibration && 'vibrate' in window.navigator) {
       window.navigator.vibrate(1000)
@@ -59,9 +64,10 @@ const notify = () => {
   }
 }
 
+store.subscribe(throttle(setTitle, 300))
 store.subscribe(throttle(save, 1000))
 store.subscribe(render)
-store.subscribe(notify)
+store.subscribe(throttle(notify, 1000))
 
 setInterval(() => {
   const state = store.getState()

@@ -1,4 +1,5 @@
 import bel from 'bel'
+import {pipe} from 'paretojs'
 import {StyleSheet, css} from 'aphrodite/no-important'
 import {convert as color} from 'css-color-function'
 import {changeTimerPlayState} from '../../services/actions'
@@ -11,7 +12,9 @@ import {
 import store from '../../services/store'
 
 export const handleClick = e => {
-  store.dispatch(changeTimerPlayState(getNextPlayState(store.getState())))
+  const actionCreator = pipe(getNextPlayState, changeTimerPlayState)
+  const action = actionCreator(store.getState())
+  store.dispatch(action)
   e.target.blur()
 }
 
