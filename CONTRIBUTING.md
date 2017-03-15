@@ -49,15 +49,9 @@ The follow scripts are available when you develop.
 
 - `npm test` - Run the tests one time.
 - `npm run watch:test` -  Watch the files and run the test every time that they are changed.
-- `npm run lint` - Lint the files.
-- `npm run lint:js` - Lint the JavaScript files.
-- `npm run lint:css` - Lint the CSS files.
-- `npm run clean:build` - Remove the build folder.
-- `npm run build:folders` - Create the build folders.
-- `npm run build:static` - Copy the static files to the build folder.
-- `npm run build:js` - Run webpack for production.
-- `npm run build` - Build for production.
-- `npm run watch:js` - Run webpack for development in watch mode.
+- `npm run lint` - Lint the JavaScript files.
+- `npm run build` - Run rollup for production.
+- `npm run watch:js` - Run rollup for development in watch mode.
 - `npm run server` - Start a server at localhost:3000.
 - `npm run watch:server` - Start a server at localhost:3000 with livereloading.
 - `npm run watch` - Watch all files, build and start server at localhost:3000.
