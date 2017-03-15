@@ -14,6 +14,7 @@ The main goal of the project is build a complete react-like app using only the c
 - [morphdom](https://github.com/patrick-steele-idem/morphdom) for fast and lightweight DOM diffing/patching (no virtual DOM needed). Because the real DOM [isn't that slow](https://github.com/patrick-steele-idem/morphdom#isnt-the-dom-slow).
 - [redux](https://github.com/reactjs/redux) for a predictable state management.
 - [aphrodite](https://github.com/Khan/aphrodite) for an easy modular and reusable CSS using [CSS in JS](https://speakerdeck.com/vjeux/react-css-in-js).
+- [pareto.js](https://github.com/concretesolutions/pareto.js) for extremely small, intuitive and fast functional helpers. An good alternative to [lodash](https://lodash.com/).
 - [rollup](http://rollupjs.org/) for create a small and fast bundle of ES6 modules. An good alternative to [webpack](https://webpack.js.org/).
 
 PS: If you know some other cool library that can be added to the project, feel free to open a issue to discuss about it. :wink:
