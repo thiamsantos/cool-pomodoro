@@ -30,5 +30,5 @@ export default {
     }),
     process.env.NODE_ENV === 'production' && uglify()
   ],
-  dest: 'build/assets/main.js'
+  dest: 'public/assets/main.js'
 }
