@@ -3,6 +3,7 @@ import store from './services/store'
 import {getTitle, getValueToResetTimer, TIMER_TYPES} from './services/utils'
 import {resetTimer} from './services/actions'
 import keyboardShortcuts from './services/keyboard-shortcuts'
+import {saveState} from './services/local-storage'
 import Root from './components/root'
 
 const {dispatch} = store
@@ -11,6 +12,7 @@ document.body.appendChild(Root({state: store.getState(), dispatch}))
 
 const render = () => {
   const state = store.getState()
+  saveState(localStorage, {adjusts: state.adjusts})
   document.title = getTitle(state)
   morphdom(
     document.getElementById('app'),

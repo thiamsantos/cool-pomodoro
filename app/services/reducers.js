@@ -6,19 +6,7 @@ import {
   RESET_TIMER
 } from './actions'
 
-export const timerInitialState = {
-  value: 1500,
-  type: 'code',
-  playState: 'running'
-}
-
-export const adjustsInitialState = {
-  notification: false,
-  sound: false,
-  vibration: false
-}
-
-export const timer = (state = timerInitialState, action) => {
+export const timer = (state = {}, action) => {
   switch (action.type) {
     case DECREMENT_TIMER:
       return {
@@ -47,7 +35,7 @@ export const timer = (state = timerInitialState, action) => {
   }
 }
 
-export const adjusts = (state = adjustsInitialState, action) => {
+export const adjusts = (state = {}, action) => {
   switch (action.type) {
     case TOGGLE_ADJUST:
       return ({

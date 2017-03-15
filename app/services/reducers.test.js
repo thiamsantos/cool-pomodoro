@@ -1,14 +1,10 @@
 import test from 'tape'
-import {
-  timer,
-  adjusts,
-  timerInitialState,
-  adjustsInitialState
-} from './reducers'
+import {timer, adjusts} from './reducers'
+import {timerInitialState, adjustsInitialState} from './store'
 
 test('timer reducer', t => {
-  const actual = timer(undefined, {})
-  const expected = timerInitialState
+  const actual = timer({}, {})
+  const expected = {}
 
   t.deepEqual(actual, expected, 'should return the initial state')
   t.end()
@@ -86,8 +82,8 @@ test('timer reducer', t => {
 })
 
 test('adjusts reducer', t => {
-  const actual = adjusts(undefined, {})
-  const expected = adjustsInitialState
+  const actual = adjusts({}, {})
+  const expected = {}
 
   t.deepEqual(actual, expected, 'should return the initial state')
   t.end()

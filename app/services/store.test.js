@@ -1,6 +1,9 @@
 import test from 'tape'
-import store from './store'
-import {timerInitialState, adjustsInitialState} from './reducers'
+import {
+  default as store,
+  timerInitialState,
+  adjustsInitialState
+} from './store'
 
 test('redux store', t => {
   const actual = store.getState()
