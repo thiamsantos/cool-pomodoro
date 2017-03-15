@@ -1,6 +1,6 @@
 {
   "name": "cool-pomodoro",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Pomodoro timer built with cool libraries",
   "scripts": {
     "deploy": "npm run build && cd build && git init && git add . && git commit -am \"Deploy\" && git push --force https://github.com/thiamsantos/cool-pomodoro.git master:gh-pages && cd ..",
