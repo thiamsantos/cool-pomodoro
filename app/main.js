@@ -1,4 +1,5 @@
 import morphdom from 'morphdom'
+import {throttle} from 'paretojs'
 import store from './services/store'
 import {getTitle, getValueToResetTimer, TIMER_TYPES} from './services/utils'
 import {resetTimer} from './services/actions'
@@ -18,6 +19,11 @@ const render = () => {
     document.getElementById('app'),
     Root({state, dispatch})
   )
+}
+
+const save = () => {
+  const state = store.getState()
+  saveState(localStorage, {adjusts: state.adjusts})
 }
 
 const notify = () => {
@@ -53,6 +59,7 @@ const notify = () => {
   }
 }
 
+store.subscribe(throttle(save, 1000))
 store.subscribe(render)
 store.subscribe(notify)
 

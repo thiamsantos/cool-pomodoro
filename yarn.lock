@@ -3253,6 +3253,10 @@ package-json@^2.0.0:
     registry-url "^3.0.3"
     semver "^5.1.0"
 
+paretojs@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/paretojs/-/paretojs-2.2.2.tgz#3619502622fb637b4b8979ee1d298a22b1163ae9"
+
 parse-gitignore@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/parse-gitignore/-/parse-gitignore-0.3.1.tgz#09adda265a4a5be2ce5e905b95a02f7f0e0044fa"
