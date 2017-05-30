@@ -5,17 +5,16 @@
 [![GitHub release](https://img.shields.io/github/release/thiamsantos/cool-pomodoro.svg)](https://github.com/thiamsantos/cool-pomodoro/releases/latest)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
->Pomodoro timer for developers built with cool libraries :sunglasses:
+> Pomodoro timer for developers built with cool libraries :sunglasses:
 
 *Note: This project is reimplementation of the awesome [react-pomodoro](https://github.com/afonsopacifer/react-pomodoro) by [@afonsopacifer](https://github.com/afonsopacifer).*
 
 The main goal of the project is build a complete react-like app using only the coolest libraries of the present. To do so it is used:
-- [bel](https://github.com/shama/bel) for composable DOM elements using tagged template strings. An good alternative to [jsx](https://facebook.github.io/react/docs/introducing-jsx.html).
-- [morphdom](https://github.com/patrick-steele-idem/morphdom) for fast and lightweight DOM diffing/patching (no virtual DOM needed). Because the real DOM [isn't that slow](https://github.com/patrick-steele-idem/morphdom#isnt-the-dom-slow).
+- [snabbx](https://github.com/thiamsantos/snabbx) for composable snabbdom virtual-nodes using tagged template stringss. An good alternative to [jsx](https://facebook.github.io/react/docs/introducing-jsx.html).
+- [snabbdom](https://github.com/snabbdom/snabbdom) for provide a virtual DOM library with focus on simplicity, modularity, powerful features and performance.
 - [redux](https://github.com/reactjs/redux) for a predictable state management.
-- [aphrodite](https://github.com/Khan/aphrodite) for an easy modular and reusable CSS using [CSS in JS](https://speakerdeck.com/vjeux/react-css-in-js).
+- [stylord](https://github.com/thiamsantos/stylord) for an easy modular and reusable CSS using [CSS in JS](https://speakerdeck.com/vjeux/react-css-in-js).
 - [pareto.js](https://github.com/concretesolutions/pareto.js) for extremely small, intuitive and fast functional helpers. An good alternative to [lodash](https://lodash.com/).
-- [rollup](http://rollupjs.org/) for create a small and fast bundle of ES6 modules. An good alternative to [webpack](https://webpack.js.org/).
 
 PS: If you know some other cool library that can be added to the project, feel free to open a issue to discuss about it. :wink:
 

@@ -1,8 +1,8 @@
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
   event.waitUntil(
     caches
       .open('v2')
-      .then(function(cache) {
+      .then(cache => {
         return cache.addAll([
           '.',
           'favicon.ico',
@@ -19,16 +19,16 @@ self.addEventListener('install', function(event) {
           'img/logo168.png',
           'img/logo192.png',
           'audio/alarm.mp3'
-        ]).then(function() {
+        ]).then(() => {
           self.skipWaiting()
         })
       })
   )
 })
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
   event.respondWith(
-    fetch(event.request).catch(function() {
+    fetch(event.request).catch(() => {
       return caches.match(event.request)
     })
   )

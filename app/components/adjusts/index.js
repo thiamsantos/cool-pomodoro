@@ -1,10 +1,10 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import {cssVariables} from '../../services/utils'
 import Info from './info'
 import Control from './control'
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   adjusts: {
     backgroundColor: cssVariables.brandColor,
     display: 'flex',
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
 })
 
 export default ({state, dispatch}) =>
-  bel`<section class=${css(styles.adjusts)}>
+  html`<section class=${styles.adjusts}>
     ${Info()}
-    <div class=${css(styles.controls)}>
-      ${['notification', 'sound', 'vibration']
-        .map(name => Control({state, dispatch, name}))
-      }
+    <div class=${styles.controls}>
+      ${['notification', 'sound', 'vibration'].map(name =>
+        Control({state, dispatch, name})
+      )}
     </div>
   </section>`

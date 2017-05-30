@@ -1,4 +1,4 @@
-import morphdom from 'morphdom'
+import {render} from 'snabbx'
 import {throttle, pipe} from 'paretojs'
 import store from './services/store'
 import {getTitle, getValueToResetTimer, TIMER_TYPES} from './services/utils'
@@ -9,15 +9,13 @@ import Root from './components/root'
 
 const {dispatch} = store
 
-document.body.appendChild(Root({state: store.getState(), dispatch}))
+const rootEl = Root({state: store.getState(), dispatch})
+render(document.getElementById('app'), rootEl)
 
-const render = () => {
+const update = () => {
   const state = store.getState()
 
-  morphdom(
-    document.getElementById('app'),
-    Root({state, dispatch})
-  )
+  render(rootEl, Root({state, dispatch}))
 }
 
 const setTitle = () => {
@@ -66,7 +64,7 @@ const notify = () => {
 
 store.subscribe(throttle(setTitle, 300))
 store.subscribe(throttle(save, 1000))
-store.subscribe(render)
+store.subscribe(update)
 store.subscribe(throttle(notify, 1000))
 
 setInterval(() => {

@@ -1,5 +1,5 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import Timer from '../timer'
 import PlayStateControl from '../play-state-control'
 import Footer from '../footer'
@@ -8,7 +8,7 @@ import Adjusts from '../adjusts'
 import GithubCorner from '../github-corner'
 import {cssVariables} from '../../services/utils'
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   app: {
     backgroundColor: cssVariables.darkColor,
     color: cssVariables.textColor,
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
 })
 
 export default ({state, dispatch}) =>
-  bel`<div id="app" class=${css(styles.app)}>
+  html`<div id="app" class=${styles.app}>
     ${GithubCorner('https://github.com/thiamsantos/cool-pomodoro')}
-    <main class=${css(styles.main)}>
+    <main class=${styles.main}>
       ${Timer(state)}
       ${PlayStateControl({state, dispatch})}
       ${ChangeTimer({state, dispatch})}

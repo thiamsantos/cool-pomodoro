@@ -1,9 +1,9 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import Display from './display'
 import Label from './label'
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   timer: {
     alignItems: 'center',
     display: 'flex',
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 })
 
 export default state =>
-  bel`<div class=${css(styles.timer)}>
+  html`<div class=${styles.timer}>
     ${Display(state.timer.value)}
     ${Label(state.timer.type)}
   </div>`

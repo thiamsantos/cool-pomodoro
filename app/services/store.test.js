@@ -1,9 +1,5 @@
 import test from 'tape'
-import {
-  default as store,
-  timerInitialState,
-  adjustsInitialState
-} from './store'
+import {default as store, timerInitialState, adjustsInitialState} from './store'
 
 test('redux store', t => {
   const actual = store.getState()
@@ -15,6 +11,7 @@ test('redux store', t => {
   t.deepEqual(
     actual,
     expected,
-    'should return a plain object with the default state')
+    'should return a plain object with the default state'
+  )
   t.end()
 })

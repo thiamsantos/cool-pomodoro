@@ -1,8 +1,8 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import {cssVariables} from '../../services/utils'
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   label: {
     color: cssVariables.textColorAccent,
     flexBasis: '100%',
@@ -10,5 +10,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default type =>
-  bel`<p class=${css(styles.label)}>The ${type} time!</p>`
+export default type => html`<p class=${styles.label}>The ${type} time!</p>`

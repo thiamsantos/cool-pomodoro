@@ -1,9 +1,9 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import {TIMER_TYPES} from '../../services/utils'
 import Button from './button'
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   changeTimer: {
     display: 'flex',
     flexDirection: 'column',
@@ -19,12 +19,6 @@ const styles = StyleSheet.create({
 })
 
 export default ({state, dispatch}) =>
-  bel`<section class=${css(styles.changeTimer)}>
-    ${TIMER_TYPES.map(item =>
-      Button({
-        timer: item,
-        state,
-        dispatch
-      })
-    )}
+  html`<section class=${styles.changeTimer}>
+    ${TIMER_TYPES.map(item => Button({timer: item, state, dispatch}))}
   </section>`

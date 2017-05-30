@@ -1,5 +1,5 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import {capitalize, cssVariables} from '../../services/utils'
 import {changeTimerType} from '../../services/actions'
 
@@ -7,9 +7,9 @@ const buttonFocusStyles = {
   backgroundColor: cssVariables.brandColorDark
 }
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   active: {
-    backgroundColor: cssVariables.brandColorLight
+    backgroundColor: cssVariables.brandColorLight + '!important'
   },
   button: {
     appearance: 'none',
@@ -44,9 +44,8 @@ export const changeTimer = ({dispatch, timer}) => e => {
 }
 
 export default ({state, dispatch, timer}) =>
-  bel`<button
-    class="${css(styles.button,
-      state.timer.type === timer.type && styles.active)}"
-    onclick=${changeTimer({dispatch, timer})}>
+  html`<button
+  class=${{[styles.button]: true, [styles.active]: state.timer.type === timer.type}}
+  onclick=${changeTimer({dispatch, timer})}>
     ${capitalize(timer.type)}
   </button>`

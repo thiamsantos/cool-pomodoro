@@ -1,10 +1,7 @@
 import test from 'tape'
 import browserEnv from 'browser-env'
 import store from '../../services/store'
-import {
-  default as PlayStateControl,
-  handleClick
-} from './'
+import {default as PlayStateControl, handleClick} from './'
 
 browserEnv(['document'])
 
@@ -31,7 +28,8 @@ test('PlayStateControl component', t => {
   t.equal(
     actual,
     expected,
-    'the textContent should be the action to be triggered')
+    'the textContent should be the action to be triggered'
+  )
   t.end()
 })
 
@@ -50,7 +48,8 @@ test('PlayStateControl component', t => {
   t.equal(
     actual,
     expected,
-    'the textContent should be the action to be triggered')
+    'the textContent should be the action to be triggered'
+  )
   t.end()
 })
 
@@ -60,20 +59,23 @@ test('handleClick function', t => {
   t.equal(
     store.getState().timer.playState,
     'running',
-    'the initial value should be running')
+    'the initial value should be running'
+  )
 
   handleClick({target})
 
   t.equal(
     store.getState().timer.playState,
     'paused',
-    'after clicking should change the playState')
+    'after clicking should change the playState'
+  )
 
   handleClick({target})
 
   t.equal(
     store.getState().timer.playState,
     'running',
-    'after clicking again should change the playState')
+    'after clicking again should change the playState'
+  )
   t.end()
 })

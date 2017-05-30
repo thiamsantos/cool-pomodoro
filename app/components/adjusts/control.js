@@ -1,5 +1,5 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import {toggleAdjust} from '../../services/actions'
 import {capitalize, cssVariables} from '../../services/utils'
 
@@ -16,7 +16,7 @@ const labelCheckedAfterBeforeStyle = {
   transform: 'rotate(45deg)'
 }
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   control: {
     marginTop: '1rem',
     '@media (min-width: 450px)': {
@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
     position: 'relative'
   },
   labelChecked: {
-    ':after': {
+    '::after': {
       ...labelCheckedAfterBeforeStyle,
       bottom: 0,
       height: '2rem',
       left: '-1.8rem',
       width: '.5rem'
     },
-    ':before': {
+    '::before': {
       ...labelCheckedAfterBeforeStyle,
       bottom: '.4rem',
       height: '.5rem',
@@ -61,17 +61,17 @@ const styles = StyleSheet.create({
 })
 
 export default ({state, dispatch, name}) =>
-  bel`<div class=${css(styles.control)}>
+  html`<div class=${styles.control}>
     <input
       type="checkbox"
-      id="${name}"
-      class=${css(styles.input)}
+      id=${name}
+      class=${styles.input}
       onchange=${handleChange(dispatch, name)}
-      checked=${state.adjusts[name]} >
+      checked=${state.adjusts[name]}/>
     <label
-      for="${name}"
-      class=${css(styles.label, state.adjusts[name] && styles.labelChecked)}>
-      <span class=${css(styles.box)}></span>
+      for=${name}
+      class=${{[styles.label]: true, [styles.labelChecked]: state.adjusts[name]}}>
+      <span class=${styles.box}></span>
       ${capitalize(name)}
     </label>
   </div>`

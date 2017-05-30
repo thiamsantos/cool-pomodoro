@@ -21,10 +21,7 @@ if (typeof window === 'undefined') {
   localStorage = window.localStorage
 }
 
-export default createStore(
-  combineReducers(reducers),
-  {
-    timer: timerInitialState,
-    adjusts: loadState(localStorage).adjusts || adjustsInitialState
-  }
-)
+export default createStore(combineReducers(reducers), {
+  timer: timerInitialState,
+  adjusts: loadState(localStorage).adjusts || adjustsInitialState
+})

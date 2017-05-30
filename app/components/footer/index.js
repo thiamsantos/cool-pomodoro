@@ -1,15 +1,17 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles, createKeyframes} from 'stylord'
 import {cssVariables} from '../../services/utils'
 
-const pulseHeartAnimation = {
-  from: {
-    transform: 'rotate(-135deg) scale(1)'
-  },
-  to: {
-    transform: 'rotate(-135deg) scale(1.2)'
+const animations = createKeyframes({
+  pulseHeart: {
+    from: {
+      transform: 'rotate(-135deg) scale(1)'
+    },
+    to: {
+      transform: 'rotate(-135deg) scale(1.2)'
+    }
   }
-}
+})
 
 const focusLinkStyle = {
   color: cssVariables.textColorDark
@@ -24,7 +26,7 @@ const heartAfterBeforeStyle = {
   width: '10px'
 }
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   footer: {
     backgroundColor: cssVariables.brandColorDark,
     paddingBottom: '1rem',
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     ':focus': focusLinkStyle
   },
   heart: {
-    animationName: pulseHeartAnimation,
+    animationName: animations.pulseHeart,
     animationDuration: '.5s',
     animationIterationCount: 'infinite',
     animationDirection: 'alternate',
@@ -63,6 +65,6 @@ const styles = StyleSheet.create({
 })
 
 export default () =>
-  bel`<footer class=${css(styles.footer)}>
-    Made with <span class=${css(styles.heart)}></span> by <a href="https://github.com/thiamsantos" target="_blank" rel="noopener" class=${css(styles.link)}>@thiamsantos</a>
+  html`<footer class=${styles.footer}>
+    Made with <span class=${styles.heart}></span> by <a href="https://github.com/thiamsantos" target="_blank" rel="noopener" class=${styles.link}>@thiamsantos</a>
   </footer>`

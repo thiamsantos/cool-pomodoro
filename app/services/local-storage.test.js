@@ -18,7 +18,8 @@ test('loadState function', t => {
   const localStorage = undefined
   t.notOk(
     loadState(localStorage, 'adjusts'),
-    'should return false if localStorage doesn\'t exist')
+    'should return false if localStorage doesn\'t exist'
+  )
   t.end()
 })
 
@@ -26,7 +27,8 @@ test('loadState function', t => {
   const localStorage = createLocalStorage()
   t.notOk(
     loadState(localStorage, 'adjusts'),
-    'should return false is the item was not defined')
+    'should return false is the item was not defined'
+  )
   t.end()
 })
 

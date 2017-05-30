@@ -16,7 +16,8 @@ test('decrementTimer action', t => {
   t.deepEqual(
     actual,
     expected,
-    'should return a plain object with just the type property')
+    'should return a plain object with just the type property'
+  )
   t.end()
 })
 
@@ -33,7 +34,8 @@ test('changeTimerType action', t => {
   t.deepEqual(
     actual,
     expected,
-    'should return a plain object following flux-standard-action')
+    'should return a plain object following flux-standard-action'
+  )
   t.end()
 })
 
@@ -49,7 +51,8 @@ test('changeTimerPlayState action', t => {
   t.deepEqual(
     actual,
     expected,
-    'should return a plain object with the new pay state')
+    'should return a plain object with the new pay state'
+  )
   t.end()
 })
 
@@ -65,7 +68,8 @@ test('toggleAdjust action', t => {
   t.deepEqual(
     actual,
     expected,
-    'should return a plain object with the name of the field to be toggled')
+    'should return a plain object with the name of the field to be toggled'
+  )
   t.end()
 })
 
@@ -81,6 +85,7 @@ test('resetTimer action', t => {
   t.deepEqual(
     actual,
     expected,
-    'should return a plain object with the value to reset')
+    'should return a plain object with the value to reset'
+  )
   t.end()
 })

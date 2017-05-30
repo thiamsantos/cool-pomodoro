@@ -14,6 +14,7 @@ test('label component', t => {
   t.equal(
     actual,
     expected,
-    'the text content should descrive the type of the current time')
+    'the text content should descrive the type of the current time'
+  )
   t.end()
 })

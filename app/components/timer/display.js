@@ -1,8 +1,8 @@
-import bel from 'bel'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {html} from 'snabbx'
+import {createStyles} from 'stylord'
 import {formatTime} from '../../services/utils'
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   display: {
     flexBasis: '100%',
     fontSize: '7.2rem',
@@ -10,5 +10,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default time =>
-  bel`<p class=${css(styles.display)}>${formatTime(time)}</p>`
+export default time => html`<p class=${styles.display}>${formatTime(time)}</p>`

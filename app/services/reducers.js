@@ -11,7 +11,7 @@ export const timer = (state = {}, action) => {
     case DECREMENT_TIMER:
       return {
         ...state,
-        value: (state.value > 0) ? state.value - 1 : 0
+        value: state.value > 0 ? state.value - 1 : 0
       }
     case CHANGE_TIMER_PLAY_STATE:
       return {
@@ -38,10 +38,10 @@ export const timer = (state = {}, action) => {
 export const adjusts = (state = {}, action) => {
   switch (action.type) {
     case TOGGLE_ADJUST:
-      return ({
+      return {
         ...state,
         [action.payload.name]: !state[action.payload.name]
-      })
+      }
     default:
       return state
   }

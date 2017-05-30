@@ -1,6 +1,6 @@
-import bel from 'bel'
+import {html} from 'snabbx'
 import {pipe} from 'paretojs'
-import {StyleSheet, css} from 'aphrodite/no-important'
+import {createStyles} from 'stylord'
 import {convert as color} from 'css-color-function'
 import {changeTimerPlayState} from '../../services/actions'
 import {
@@ -22,7 +22,7 @@ const buttonFocusStyle = {
   backgroundColor: color(`color(${cssVariables.textColor} a(54%))`)
 }
 
-const styles = StyleSheet.create({
+const styles = createStyles({
   button: {
     appearance: 'none',
     backgroundColor: cssVariables.textColor,
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
       display: 'block',
       height: 0,
       left: '1.75rem',
+      opacity: 0,
       position: 'absolute',
       top: '1.25rem',
       width: 0
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
       display: 'block',
       height: '2.25rem',
       left: '50%',
+      opacity: 1,
       position: 'absolute',
       top: '50%',
       transform: 'translateX(-50%) translateY(-50%)',
@@ -70,20 +72,11 @@ const styles = StyleSheet.create({
     ':before': {
       opacity: 1
     }
-  },
-  pause: {
-    ':after': {
-      opacity: 1
-    },
-    ':before': {
-      opacity: 0
-    }
   }
 })
 
-export default ({state}) =>
-  bel`<button
-    class="${css(styles.button, isPaused(state) ? styles.play : styles.pause)}"
-    onclick=${handleClick}>
+export default ({state}) => html`<button
+  class=${{[styles.button]: true, [styles.play]: isPaused(state)}}
+  onclick=${handleClick}>
     ${getNextPlayStateText(state)}
   </button>`

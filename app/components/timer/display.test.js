@@ -14,6 +14,7 @@ test('display component', t => {
   t.equal(
     actual,
     expected,
-    'the text content should be a formatted time given the seconds')
+    'the text content should be a formatted time given the seconds'
+  )
   t.end()
 })

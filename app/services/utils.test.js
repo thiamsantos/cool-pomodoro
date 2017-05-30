@@ -44,7 +44,8 @@ test('getTitle function', t => {
   t.equal(
     actual,
     expected,
-    'should return a string with the formatted title given the store')
+    'should return a string with the formatted title given the store'
+  )
   t.end()
 })
 
@@ -108,7 +109,8 @@ test('getNextPlayStateText function', t => {
   t.equal(
     actual,
     expected,
-    'should return the type of the action to be triggered: pause')
+    'should return the type of the action to be triggered: pause'
+  )
   t.end()
 })
 
@@ -125,7 +127,8 @@ test('getNextPlayStateText function', t => {
   t.equal(
     actual,
     expected,
-    'should return the type of the action to be triggered: play')
+    'should return the type of the action to be triggered: play'
+  )
   t.end()
 })
 
@@ -164,7 +167,8 @@ test('TIMER_TYPES const', t => {
     t.equal(
       actual,
       expected,
-      'the items in the const should be have two properties')
+      'the items in the const should be have two properties'
+    )
   }
   t.end()
 })
@@ -174,10 +178,7 @@ test('TIMER_TYPES const', t => {
     const actual = typeof item.value
     const expected = 'number'
 
-    t.equal(
-      actual,
-      expected,
-      'the property value in a item should be a number')
+    t.equal(actual, expected, 'the property value in a item should be a number')
   }
   t.end()
 })
@@ -190,7 +191,8 @@ test('TIMER_TYPES const', t => {
     t.equal(
       actual,
       expected,
-      'the property type in the const should be a string')
+      'the property type in the const should be a string'
+    )
   }
   t.end()
 })
@@ -218,7 +220,8 @@ test('getNextItem function', t => {
   t.equal(
     actual,
     expected,
-    'should return the next item of the array given a index')
+    'should return the next item of the array given a index'
+  )
   t.end()
 })
 
@@ -231,7 +234,8 @@ test('getNextItem function', t => {
   t.equal(
     actual,
     expected,
-    'should return the first item given the index of the last item')
+    'should return the first item given the index of the last item'
+  )
   t.end()
 })
 
@@ -241,10 +245,7 @@ test('getPreviousItem', t => {
   const actual = getPreviousItem(arr, 1)
   const expected = 'first'
 
-  t.equal(
-    actual,
-    expected,
-    'should return the previous item given a index')
+  t.equal(actual, expected, 'should return the previous item given a index')
   t.end()
 })
 
@@ -257,18 +258,22 @@ test('getPreviousItem', t => {
   t.equal(
     actual,
     expected,
-    'should return the last item given the index of the first item')
+    'should return the last item given the index of the first item'
+  )
   t.end()
 })
 
 test('sequentiallyGetTimerType function', t => {
-  const types = [{
-    type: 'code',
-    value: 1500
-  }, {
-    type: 'coffee',
-    value: 300
-  }]
+  const types = [
+    {
+      type: 'code',
+      value: 1500
+    },
+    {
+      type: 'coffee',
+      value: 300
+    }
+  ]
   const currentType = 'code'
   const actual = sequentiallyGetTimerType(currentType, types, getNextItem)
   const expected = {
@@ -280,13 +285,16 @@ test('sequentiallyGetTimerType function', t => {
 })
 
 test('sequentiallyGetTimerType function', t => {
-  const types = [{
-    type: 'code',
-    value: 1500
-  }, {
-    type: 'coffee',
-    value: 300
-  }]
+  const types = [
+    {
+      type: 'code',
+      value: 1500
+    },
+    {
+      type: 'coffee',
+      value: 300
+    }
+  ]
   const currentType = 'coffee'
   const actual = sequentiallyGetTimerType(currentType, types, getPreviousItem)
   const expected = {
@@ -296,7 +304,8 @@ test('sequentiallyGetTimerType function', t => {
   t.deepEqual(
     actual,
     expected,
-    'should return the previous object of the array')
+    'should return the previous object of the array'
+  )
   t.end()
 })
 
@@ -308,7 +317,8 @@ test('getValueToResetTimer function', t => {
   t.equal(
     actual,
     expected,
-    'should return the default value of the timer type matched')
+    'should return the default value of the timer type matched'
+  )
   t.end()
 })
 
@@ -317,9 +327,6 @@ test('getValueToResetTimer function', t => {
   const actual = getValueToResetTimer('drink', timerTypes)
   const expected = 0
 
-  t.equal(
-    actual,
-    expected,
-    'should return 0 if the current type doesnt exist')
+  t.equal(actual, expected, 'should return 0 if the current type doesnt exist')
   t.end()
 })

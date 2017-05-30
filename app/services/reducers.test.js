@@ -20,10 +20,7 @@ test('timer reducer', t => {
     value: 1499
   }
 
-  t.deepEqual(
-    actual,
-    expected,
-    'should decrement the value field')
+  t.deepEqual(actual, expected, 'should decrement the value field')
   t.end()
 })
 

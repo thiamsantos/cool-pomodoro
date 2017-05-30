@@ -22,7 +22,8 @@ test('Button component', t => {
   t.equal(
     actual,
     expected,
-    'the text content should be the timerType capitalizes')
+    'the text content should be the timerType capitalizes'
+  )
   t.end()
 })
 
@@ -40,11 +41,13 @@ test('changeTimer function', t => {
   t.equal(
     store.getState().timer.value,
     200,
-    'should change the timer value from the store')
+    'should change the timer value from the store'
+  )
   t.equal(
     store.getState().timer.type,
     'drink',
-    'should change the timer type from the store')
+    'should change the timer type from the store'
+  )
 
   changeTimer({
     dispatch: store.dispatch,
@@ -57,11 +60,13 @@ test('changeTimer function', t => {
   t.equal(
     store.getState().timer.value,
     1500,
-    'should change the timer value from the store')
+    'should change the timer value from the store'
+  )
   t.equal(
     store.getState().timer.type,
     'code',
-    'should change the timer type from the store')
+    'should change the timer type from the store'
+  )
 
   t.end()
 })
